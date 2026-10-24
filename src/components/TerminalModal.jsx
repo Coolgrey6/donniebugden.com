@@ -42,9 +42,10 @@ export default function TerminalModal({ isOpen, onClose, onOpenContact }) {
         { text: "Available Commands:", type: "info" },
         { text: "  roots         - Inspect E8 Gosset root projection and kissing numbers", type: "info" },
         { text: "  eval-parity   - Compute and verify exact sum(sigma(alpha)) = 0", type: "info" },
+        { text: "  odt           - Compute 14-phase dimensional stepping & metric cancellation", type: "info" },
         { text: "  gap           - Calculate 5-tetrahedra Euclidean dihedral deficit delta", type: "info" },
         { text: "  icosian       - Display fundamental H4 generators & C(phi) parameter", type: "info" },
-        { text: "  download      - Provide direct links to papers and visual proof atlas", type: "info" },
+        { text: "  download      - Provide direct links to all research papers & atlas PDFs", type: "info" },
         { text: "  retain        - Launch executive advisory retainer dispatch", type: "info" },
         { text: "  clear         - Clear the terminal console buffer", type: "info" }
       );
@@ -70,6 +71,17 @@ export default function TerminalModal({ isOpen, onClose, onOpenContact }) {
         { text: `  SUM(sigma(alpha)) = 120(-1) + 120(+1) = ${sum}`, type: "success" },
         { text: `>> THEOREM VALIDATED: Zero macroscopic chiral strain.`, type: "success" }
       );
+    } else if (lower === 'odt' || lower === 'antigravity') {
+      newHistory.push(
+        { text: `[ODT Gravitational Modification & Metric Distortion Engine]`, type: "success" },
+        { text: `Modular Dimensional Clock: D(n) = 8 - |(n mod 14) - 7|`, type: "info" },
+        { text: `Trajectory: {1, 2, 3, 4, 5, 6, 7, 8, 7, 6, 5, 4, 3, 2}`, type: "info" },
+        { text: `Apex (n = 7): D = 8D, Holographic Horizon Density phi^8 ~= 46.979`, type: "info" },
+        { text: `Descent Phase (n = 8..13): phi^-D(n) induces destructive curvature cancellation`, type: "warn" },
+        { text: `Stress Inversion: T_μν^(eff) = Omega_phi(n) T_μν^(0)  =>  m_eff <= 0`, type: "success" },
+        { text: `Momentum Shunting: ∇_A T^AB_(8) = 0 => a^μ_proper = 0 (Zero G-Force)`, type: "success" },
+        { text: `ODT Paper PDF: /Oscillating_Dimensional_Trajectory_Paper.pdf`, type: "info" }
+      );
     } else if (lower === 'gap') {
       newHistory.push(
         { text: `[Tetrahedral Dihedral Frustration Analysis]`, type: "info" },
@@ -89,9 +101,10 @@ export default function TerminalModal({ isOpen, onClose, onOpenContact }) {
     } else if (lower === 'download') {
       newHistory.push(
         { text: `[Research Publication Repositories]`, type: "info" },
-        { text: `1. Manuscript PDF: /Hypercomplex_Dynamical_Parity_on_E8.pdf`, type: "success" },
-        { text: `2. Proof Atlas PDF: /Visual_Companion_Mathematical_Proof_Atlas_E8.pdf`, type: "success" },
-        { text: `Tip: Use the Research Library tab on the main page to download or read.`, type: "info" }
+        { text: `1. Paper I Manuscript: /Hypercomplex_Dynamical_Parity_on_E8.pdf (387 KB)`, type: "success" },
+        { text: `2. Paper I Proof Atlas: /Visual_Companion_Mathematical_Proof_Atlas_E8.pdf (617 KB)`, type: "success" },
+        { text: `3. Paper II ODT & Anti-Gravity: /Oscillating_Dimensional_Trajectory_Paper.pdf (131 KB)`, type: "success" },
+        { text: `Tip: Use the Research Library section on the site to read and download.`, type: "info" }
       );
     } else if (lower === 'retain' || lower === 'contact') {
       newHistory.push(
