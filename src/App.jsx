@@ -20,6 +20,8 @@ import MathematicalFormalismODT from './components/MathematicalFormalismODT';
 import VisualizersSectionODT from './components/VisualizersSectionODT';
 import ProtocolsDashboardODT from './components/ProtocolsDashboardODT';
 
+import { trackTheoryView, trackEvent } from './utils/analytics';
+
 export default function App() {
   const [terminalOpen, setTerminalOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
@@ -59,6 +61,11 @@ export default function App() {
     };
   }, []);
 
+  // Track theory view in Google Analytics
+  useEffect(() => {
+    trackTheoryView(activeTheory);
+  }, [activeTheory]);
+
   const handleSelectTheory = (theory) => {
     setActiveTheory(theory);
     const newPath = theory === 'odt' ? '/anti-gravity' : '/';
@@ -68,12 +75,22 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleOpenTerminal = () => {
+    trackEvent('terminal_modal_open', { active_theory: activeTheory });
+    setTerminalOpen(true);
+  };
+
+  const handleOpenContact = () => {
+    trackEvent('contact_modal_open', { active_theory: activeTheory });
+    setContactOpen(true);
+  };
+
   return (
     <div className="min-h-screen bg-[#090D16] text-slate-100 tech-grid-bg relative selection:bg-cyan-500/30 selection:text-cyan-200">
       {/* Global Navigation Header with Dual Framework Switcher */}
       <Navbar 
-        onOpenTerminal={() => setTerminalOpen(true)}
-        onOpenContact={() => setContactOpen(true)}
+        onOpenTerminal={handleOpenTerminal}
+        onOpenContact={handleOpenContact}
         activeTheory={activeTheory}
         onSelectTheory={handleSelectTheory}
       />
@@ -88,8 +105,8 @@ export default function App() {
           <div key="framework-hypercomplex" className="space-y-0 transition-opacity duration-300">
             {/* Section 1: Hero & Executive Profile */}
             <Hero 
-              onOpenTerminal={() => setTerminalOpen(true)}
-              onOpenContact={() => setContactOpen(true)}
+              onOpenTerminal={handleOpenTerminal}
+              onOpenContact={handleOpenContact}
               onSwitchToTheory2={() => handleSelectTheory('odt')}
             />
 
@@ -115,8 +132,8 @@ export default function App() {
           <div key="framework-odt" className="space-y-0 transition-opacity duration-300">
             {/* Section 1: Hero & Executive Profile (ODT) */}
             <HeroODT 
-              onOpenTerminal={() => setTerminalOpen(true)}
-              onOpenContact={() => setContactOpen(true)}
+              onOpenTerminal={handleOpenTerminal}
+              onOpenContact={handleOpenContact}
               onSwitchToTheory1={() => handleSelectTheory('hypercomplex')}
             />
 
@@ -136,7 +153,7 @@ export default function App() {
 
         {/* Section 6: Strategic Consulting & Defense/Advisory Matrix (Shared) */}
         <ConsultingServices 
-          onOpenContact={() => setContactOpen(true)}
+          onOpenContact={handleOpenContact}
         />
 
         {/* Section 7: Research Library & Visual Proof Atlas Reader (Dual Papers) */}
@@ -145,15 +162,15 @@ export default function App() {
 
       {/* Footer */}
       <Footer 
-        onOpenTerminal={() => setTerminalOpen(true)}
-        onOpenContact={() => setContactOpen(true)}
+        onOpenTerminal={handleOpenTerminal}
+        onOpenContact={handleOpenContact}
       />
 
       {/* Interactive Terminal Modal */}
       <TerminalModal 
         isOpen={terminalOpen}
         onClose={() => setTerminalOpen(false)}
-        onOpenContact={() => setContactOpen(true)}
+        onOpenContact={handleOpenContact}
       />
 
       {/* Advisory Retainer & Contact Modal */}

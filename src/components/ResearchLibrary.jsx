@@ -13,6 +13,7 @@ import {
   Zap,
   Table as TableIcon
 } from 'lucide-react';
+import { trackEvent } from '../utils/analytics';
 
 export default function ResearchLibrary() {
   // Top-level paper selection: 'odt' (This Paper: Anti-Gravity/ODT), 'hypercomplex' (The Other Paper: Quasicrystals), or 'all' (Dual Archive)
@@ -55,13 +56,20 @@ export default function ResearchLibrary() {
   const copyBibtex1 = () => {
     navigator.clipboard.writeText(bibtexPaper1);
     setCopiedBib1(true);
+    trackEvent('copy_bibtex', { paper: 'hypercomplex_quasicrystals' });
     setTimeout(() => setCopiedBib1(false), 2000);
   };
 
   const copyBibtex2 = () => {
     navigator.clipboard.writeText(bibtexPaper2);
     setCopiedBib2(true);
+    trackEvent('copy_bibtex', { paper: 'odt_anti_gravity' });
     setTimeout(() => setCopiedBib2(false), 2000);
+  };
+
+  const handleSelectPaper = (paperId) => {
+    setActivePaper(paperId);
+    trackEvent('research_tab_switch', { paper_selected: paperId });
   };
 
   return (
@@ -82,7 +90,7 @@ export default function ResearchLibrary() {
         {/* Primary Paper Selection - Section Breakdown */}
         <div className="mt-8 flex flex-wrap items-center justify-center gap-2 p-1.5 bg-slate-950/90 rounded-2xl border border-slate-800 text-xs font-mono max-w-3xl">
           <button
-            onClick={() => setActivePaper('odt')}
+            onClick={() => handleSelectPaper('odt')}
             className={`px-4 py-2.5 rounded-xl transition-all flex items-center gap-2 ${
               activePaper === 'odt'
                 ? 'bg-amber-950 text-amber-300 border border-amber-600/60 shadow-[0_0_15px_rgba(245,158,11,0.2)] font-bold'
@@ -97,7 +105,7 @@ export default function ResearchLibrary() {
           </button>
 
           <button
-            onClick={() => setActivePaper('hypercomplex')}
+            onClick={() => handleSelectPaper('hypercomplex')}
             className={`px-4 py-2.5 rounded-xl transition-all flex items-center gap-2 ${
               activePaper === 'hypercomplex'
                 ? 'bg-cyan-950 text-cyan-300 border border-cyan-600/60 shadow-[0_0_15px_rgba(6,182,212,0.2)] font-bold'
@@ -109,7 +117,7 @@ export default function ResearchLibrary() {
           </button>
 
           <button
-            onClick={() => setActivePaper('all')}
+            onClick={() => handleSelectPaper('all')}
             className={`px-3.5 py-2.5 rounded-xl transition-all flex items-center gap-1.5 ${
               activePaper === 'all'
                 ? 'bg-slate-800 text-slate-100 border border-slate-700 shadow font-bold'
