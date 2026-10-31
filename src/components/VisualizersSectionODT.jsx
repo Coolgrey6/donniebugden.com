@@ -23,10 +23,10 @@ export default function VisualizersSectionODT() {
           Interactive 3D WebGL Simulation Suite
         </div>
         <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-100 tracking-tight max-w-4xl">
-          Dynamic Metric Distortion &amp; ODT Laboratory
+          Dynamic Dimensional Oscillator &amp; Metric Simulation Laboratory
         </h2>
         <p className="mt-4 text-slate-400 text-sm sm:text-base max-w-3xl leading-relaxed">
-          Interactive real-time numerical simulation modeling the 14-step dimensional oscillator, local Riemann curvature cancellation, and hyper-dimensional momentum shunting across the <MathBlock math="E_8" /> lattice.
+          Interactive real-time numerical simulation modeling the 14-step dimensional operator <MathBlock math="D(n)" />, discrete scale factors <MathBlock math="S_n = \phi^{(-1)^n \cdot D(n)}" />, and exploratory models of localized curvature modulation across the <MathBlock math="E_8" /> lattice. Note: Physical interpretations remain exploratory hypotheses that have not yet been quantitatively tested.
         </p>
 
         {/* Mode Switcher */}

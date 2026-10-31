@@ -78,7 +78,7 @@ export default function ProtocolsDashboard() {
               </span>
             </h3>
             <p className="text-xs text-slate-400 font-mono">
-              Deterministic numerical benchmarks proving H₄ orbit stability & strain minimization
+              Numerical benchmarks evaluating Green's potential ranking, partition balance, and strain models
             </p>
           </div>
         </div>
@@ -105,7 +105,7 @@ export default function ProtocolsDashboard() {
             }`}
           >
             <Layers className="w-3.5 h-3.5" />
-            Protocol 2: Strain Minimization
+            Protocol 2: Strain Model (Conjecture)
           </button>
           <button
             onClick={() => setActiveProtocol(3)}
@@ -116,9 +116,19 @@ export default function ProtocolsDashboard() {
             }`}
           >
             <Activity className="w-3.5 h-3.5" />
-            Protocol 3: Autocorrelation ξ(r)
+            Protocol 3: Autocorrelation
           </button>
         </div>
+      </div>
+
+      {/* Computational Examination Status Callout */}
+      <div className="p-4 bg-cyan-950/30 border-b border-cyan-800/50 px-6 text-xs text-slate-300 font-mono flex items-start gap-3">
+        <span className="text-cyan-400 font-bold uppercase tracking-wider shrink-0 mt-0.5">
+          Status Note:
+        </span>
+        <p className="leading-relaxed">
+          Computational examination confirms that the Green’s potential ranking produces an exact 120/120 partition on generic projections of the actual E8 roots. Claims of automatic shear cancellation via anti-correlated chiralities are not supported by the adjacency-graph and nearest-neighbor tests performed so far and are retained only as open research directions.
+        </p>
       </div>
 
       {/* Protocol Content Body */}
@@ -201,18 +211,18 @@ export default function ProtocolsDashboard() {
               <div className="glass-panel p-5 rounded-xl border border-slate-800 flex flex-col justify-between">
                 <div className="space-y-3">
                   <span className="text-xs font-mono uppercase text-slate-400 font-semibold tracking-wider block">
-                    Proof Validation Summary
+                    Proof &amp; Ranking Validation Summary
                   </span>
                   <p className="text-xs text-slate-300 leading-relaxed">
-                    Under forward iteration of <code className="text-cyan-300 bg-slate-900 px-1 py-0.5 rounded font-mono">f_C(q) = q² + C(φ)</code>, the 240 roots of E8 fall precisely into two invariant basins. All 120 vertices of the inner 600-cell remain uniformly bounded within the filled Julia set <code className="text-cyan-300 bg-slate-900 px-1 py-0.5 rounded font-mono">K_C(φ)</code>, while all 120 vertices of the dilated outer shell cross the escape threshold <code className="text-amber-400 bg-slate-900 px-1 py-0.5 rounded font-mono">R = φ</code>.
+                    Under generic orthogonal projections, Green’s potential ranking evaluates the 240 roots of E8 into two balanced 120-element sets (<code className="text-cyan-300 bg-slate-900 px-1 py-0.5 rounded font-mono">∑ σ = 0</code>). Applied to the pure unit and φ-scaled icosian shells, the escape protocol yields a near-balanced separation between the bounded core and the escape threshold <code className="text-amber-400 bg-slate-900 px-1 py-0.5 rounded font-mono">R = φ</code>.
                   </p>
                 </div>
 
                 <div className="mt-4 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono text-slate-400">
-                  <span>Theorem Status:</span>
+                  <span>Partition Status:</span>
                   <span className="text-cyan-400 font-bold bg-cyan-950/60 px-2 py-1 rounded border border-cyan-800/60 flex items-center gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5" />
-                    Analytically Closed & Verified
+                    Exact 120/120 on Generic Projections
                   </span>
                 </div>
               </div>
@@ -227,10 +237,10 @@ export default function ProtocolsDashboard() {
               <div className="space-y-1">
                 <h4 className="text-sm font-semibold text-slate-200 flex items-center gap-2 font-mono">
                   <span className="w-2 h-2 rounded-full bg-amber-400"></span>
-                  Protocol 2 (Frustration Energy Minimization)
+                  Protocol 2 (Strain Energy Minimization Model — Open Conjecture)
                 </h4>
                 <p className="text-xs text-slate-400 max-w-2xl">
-                  Simulate a cluster of N tetrahedral prototiles. Compare the global Hamiltonian strain energy H_strain under Donnie Bugden's Julia parity assignment against stochastic Monte Carlo state assignment.
+                  Simulate a cluster of N tetrahedral prototiles under the theoretical anti-phase coupling model versus uncorrelated random assignment. Note: automatic shear cancellation on geometric neighbor graphs remains an open conjecture unconfirmed in adjacency tests.
                 </p>
               </div>
               <div className="flex items-center gap-3">

@@ -226,43 +226,72 @@ export default function ResearchLibrary() {
                 </div>
 
                 {/* Abstract Box */}
-                <div className="p-6 rounded-xl bg-slate-950/70 border border-slate-800/80 space-y-3">
+                <div className="p-6 rounded-xl bg-slate-950/70 border border-slate-800/80 space-y-4">
                   <span className="text-xs font-mono uppercase text-amber-400 font-bold tracking-widest block">
                     Abstract
                   </span>
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
-                    We introduce a dynamic theoretical framework that treats spatial dimensionality not as a static background manifold, but as an oscillating discrete function <MathBlock math="D(n) = 8 - |(n \bmod 14) - 7|" /> traversing the 240 root vectors of the exceptional Lie algebra <MathBlock math="E_8" />. State vectors evolve under golden-ratio modulation <MathBlock math="\psi_{n+1} = \mathcal{P}_{D(n)} (\phi^{(-1)^n \cdot D(n)} \cdot \hat{\mathcal{E}}_8 \cdot \psi_n)" />. We demonstrate that during the reverse dimensional descent phase (<MathBlock math="D(n): 8 \to 1" />), the negative scaling factor <MathBlock math="\lambda_n = \phi^{-D(n)}" /> induces localized phase-cancellation across spacetime curvature, inverting effective stress-energy tensors (<MathBlock math="T_{\mu\nu}^{(\text{eff})}" />) and reducing effective gravitational mass (<MathBlock math="m_{\text{eff}} \to 0" /> or <MathBlock math="m_{\text{eff}} < 0" />). Concurrently, non-local 8D geodesic projection shunts localized 3-momentum into orthogonal hyper-dimensional lattice directions, enabling genuine inertial phase-slipping (<MathBlock math="a^\mu_{\text{proper}} = 0" />) without violating global 8D energy-momentum conservation (<MathBlock math="\nabla_A T^{AB}_{(8)} = 0" />). By enforcing <MathBlock math="\phi" />-harmonic frequency matching (<MathBlock math="\omega_k = \omega_0 \phi^k" />), an asymmetric metric gradient is sustained, establishing a rigorous mathematical foundation for propellantless field propulsion and gravitational shielding.
-                  </p>
+                  <div className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans space-y-3">
+                    <p>
+                      We introduce a recursive dimensional operator that treats spatial dimensionality as a discrete oscillating function rather than a fixed background. The operator is defined by
+                    </p>
+                    <MathBlock 
+                      block 
+                      math="D(n) = 8 - |(n \bmod 14) - 7|"
+                    />
+                    <p>
+                      producing a periodic triangular trajectory that cycles through dimensions 1 through 8. When modulated by powers of the golden ratio,
+                    </p>
+                    <MathBlock 
+                      block 
+                      math="S_n = \phi^{(-1)^n \cdot D(n)}"
+                    />
+                    <p>
+                      the construction generates a discrete spectrum of scale factors.
+                    </p>
+                    <p>
+                      The operator provides a well-defined geometric framework for exploring dimensional oscillation. Interpretations that link descent phases to quantum non-locality or ascent phases to cosmological expansion, as well as any associated anti-gravity or inertial-decoupling ideas, are presently exploratory and have not been derived from the operator or subjected to quantitative tests.
+                    </p>
+                  </div>
+
+                  {/* Status Note */}
+                  <div className="p-4 rounded-lg bg-amber-950/40 border border-amber-800/60 text-xs font-mono text-amber-200 space-y-1 mt-4">
+                    <span className="font-bold uppercase tracking-wider block text-amber-400">
+                      Theoretical &amp; Empirical Status Note
+                    </span>
+                    <p className="text-slate-300 leading-relaxed font-sans">
+                      The mathematical definition of <MathBlock math="D(n)" /> is exact and periodic. Physical consequences relating the trajectory to quantum or cosmological phenomena remain conjectural and are presented as long-term research directions rather than established results.
+                    </p>
+                  </div>
+
                   <div className="pt-2 flex flex-wrap items-center gap-2 text-xs font-mono text-slate-500">
                     <span className="text-slate-400">Keywords:</span>
-                    <span className="text-slate-300">E8 Root Lattice</span> •
-                    <span className="text-slate-300">Oscillating Dimensions</span> •
-                    <span className="text-slate-300">Dynamic Metric Distortion</span> •
-                    <span className="text-slate-300">Inertial Decoupling</span> •
-                    <span className="text-slate-300">Anti-Gravity Field Dynamics</span> •
-                    <span className="text-slate-300">Golden Ratio Modulation</span> •
-                    <span className="text-slate-300">Alcubierre Geodesics</span> •
-                    <span className="text-slate-300">Stress-Energy Inversion</span>
+                    <span className="text-slate-300">Recursive Dimensional Operator</span> •
+                    <span className="text-slate-300">Oscillating Trajectories</span> •
+                    <span className="text-slate-300">Golden Ratio Scale Factors</span> •
+                    <span className="text-slate-300">E8 Polytope Geometry</span> •
+                    <span className="text-slate-300">Exploratory Metric Distortion</span> •
+                    <span className="text-slate-300">Inertial Decoupling (Hypothesis)</span> •
+                    <span className="text-slate-300">Cosmological Scaling (Conjecture)</span>
                   </div>
                 </div>
 
                 {/* Key Findings List */}
                 <div className="space-y-4">
                   <span className="text-xs font-mono uppercase text-slate-400 font-bold tracking-wider block">
-                    Primary Formal Conclusions (Section 5)
+                    Primary Formal Components &amp; Research Status
                   </span>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div className="p-4 rounded-xl bg-slate-900/50 border border-slate-800 text-xs font-mono text-slate-300 space-y-1">
-                      <span className="text-amber-400 font-bold block mb-1">1. Dynamic Metric Cancellation</span>
-                      Reverse dimensional descent (<MathBlock math="D: 8 \to 1" />) contracts coordinates via <MathBlock math="\phi^{-D(n)}" />, inverting the effective stress-energy tensor <MathBlock math="T_{\mu\nu}^{(\text{eff})} = \hat{\Omega}_\phi(n) T_{\mu\nu}^{(0)}" /> and reducing effective gravitational mass to <MathBlock math="m_{\text{eff}} \le 0" />.
+                      <span className="text-amber-400 font-bold block mb-1">1. Exact Periodic Operator D(n)</span>
+                      Closed periodic triangular trajectory cycling through dimensions 1 through 8 with scale factors <MathBlock math="S_n = \phi^{(-1)^n \cdot D(n)}" />.
                     </div>
                     <div className="p-4 rounded-xl bg-slate-900/50 border border-slate-800 text-xs font-mono text-slate-300 space-y-1">
-                      <span className="text-cyan-400 font-bold block mb-1">2. Inertial Phase-Slipping</span>
-                      Higher-dimensional geodesics on <MathBlock math="\mathcal{M}^8" /> shunt 3-momentum into orthogonal <MathBlock math="E_8" /> internal degrees of freedom (<MathBlock math="y^a" />), eliminating proper acceleration: <MathBlock math="a^\mu_{\text{proper}} = 0" /> with zero internal <MathBlock math="g" />-force.
+                      <span className="text-cyan-400 font-bold block mb-1">2. Metric &amp; Inertial Proposals (Exploratory)</span>
+                      Proposals linking descent phases to curvature cancellation (<MathBlock math="T_{\mu\nu}^{(\text{eff})}" />) or internal momentum shunting (<MathBlock math="a^\mu_{\text{proper}} = 0" />) are exploratory hypotheses that have not yet been quantitatively tested.
                     </div>
                     <div className="p-4 rounded-xl bg-slate-900/50 border border-slate-800 text-xs font-mono text-slate-300 space-y-1">
-                      <span className="text-emerald-400 font-bold block mb-1">3. φ-Harmonic Propulsion</span>
-                      Discrete frequency matching <MathBlock math="\omega_k = \omega_0 \phi^k" /> establishes a forward contraction (<MathBlock math="\phi^{-D}" />) and aft expansion (<MathBlock math="\phi^{+D}" />) metric gradient, enabling propellantless field acceleration.
+                      <span className="text-emerald-400 font-bold block mb-1">3. Cosmological Extensions (Open Directions)</span>
+                      Conjectured relationships between ascending dimensional phases and cosmological expansion are conceptual research directions rather than derived or verified results.
                     </div>
                   </div>
                 </div>
@@ -369,7 +398,7 @@ export default function ResearchLibrary() {
                 <div className="p-6 rounded-xl bg-slate-950/80 border border-slate-800 space-y-4">
                   <div className="flex items-center gap-2 text-xs font-mono uppercase text-cyan-400 font-bold tracking-wider">
                     <TableIcon className="w-4 h-4" />
-                    Comparative Analysis: Standard Einstein GR vs. Bugden ODT Framework
+                    Comparative Analysis: Standard Einstein GR vs. Exploratory ODT Framework
                   </div>
                   <div className="overflow-x-auto">
                     <table className="w-full text-left border-collapse text-xs font-mono">
@@ -377,39 +406,39 @@ export default function ResearchLibrary() {
                         <tr className="border-b border-slate-800 text-slate-400">
                           <th className="py-2.5 px-3">Physical Principle</th>
                           <th className="py-2.5 px-3">Standard Einstein GR</th>
-                          <th className="py-2.5 px-3 text-amber-300">Bugden Oscillating E8 Metric Distortion</th>
+                          <th className="py-2.5 px-3 text-amber-300">Bugden ODT Framework (Exploratory Theoretical Model)</th>
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-slate-900 text-slate-300">
                         <tr>
                           <td className="py-2.5 px-3 font-semibold text-slate-400">Spacetime Manifold</td>
                           <td className="py-2.5 px-3">Static 4D pseudo-Riemannian manifold</td>
-                          <td className="py-2.5 px-3 text-amber-200">Dynamic projection slice <MathBlock math="D(n) \in \{1,\dots,8\}" /> in 8D E8 lattice</td>
+                          <td className="py-2.5 px-3 text-amber-200">Dynamic projection slice <MathBlock math="D(n) \in \{1,\dots,8\}" /> in 8D E8 lattice (Exact Operator)</td>
                         </tr>
                         <tr>
                           <td className="py-2.5 px-3 font-semibold text-slate-400">Equivalence Principle</td>
                           <td className="py-2.5 px-3">Strict, universal identity <MathBlock math="m_i \equiv m_g" /></td>
-                          <td className="py-2.5 px-3 text-amber-200">Conditional projection; inertial &amp; gravitational mass independently tunable (<MathBlock math="m_{\text{eff}} \to 0" />)</td>
+                          <td className="py-2.5 px-3 text-amber-200">Hypothesized dimensional decoupling (<MathBlock math="m_{\text{eff}} \to 0" />); exploratory and untested quantitatively</td>
                         </tr>
                         <tr>
                           <td className="py-2.5 px-3 font-semibold text-slate-400">Gravitational Constant</td>
                           <td className="py-2.5 px-3">Fixed scalar <MathBlock math="G \approx 6.674 \times 10^{-11}" /></td>
-                          <td className="py-2.5 px-3 text-amber-200">Dynamic coupling function <MathBlock math="G(n)" /> modulated by <MathBlock math="\phi^{\pm(D-4)}" /></td>
+                          <td className="py-2.5 px-3 text-amber-200">Dynamic coupling function <MathBlock math="G(n)" /> modulated by <MathBlock math="\phi^{\pm(D-4)}" /> (Exploratory proposal)</td>
                         </tr>
                         <tr>
                           <td className="py-2.5 px-3 font-semibold text-slate-400">Stress-Energy Tensor</td>
                           <td className="py-2.5 px-3">Strictly non-negative energy conditions (<MathBlock math="\rho \ge 0" />)</td>
-                          <td className="py-2.5 px-3 text-amber-200">Descent phase yields effective negative energy density (<MathBlock math="T_{00}^{(\text{eff})} < 0" />)</td>
+                          <td className="py-2.5 px-3 text-amber-200">Conjectured descent-phase effective negative energy density (<MathBlock math="T_{00}^{(\text{eff})} < 0" />)</td>
                         </tr>
                         <tr>
                           <td className="py-2.5 px-3 font-semibold text-slate-400">Momentum Conservation</td>
                           <td className="py-2.5 px-3">Local 4D divergence-free: <MathBlock math="\nabla_\mu T^{\mu\nu} = 0" /></td>
-                          <td className="py-2.5 px-3 text-amber-200">Global 8D conservation: <MathBlock math="\nabla_A T^{AB} = 0" />; 3-momentum shunted to <MathBlock math="y^a" /></td>
+                          <td className="py-2.5 px-3 text-amber-200">Global 8D conservation: <MathBlock math="\nabla_A T^{AB} = 0" />; exploratory shunting hypothesis to internal <MathBlock math="y^a" /></td>
                         </tr>
                         <tr>
                           <td className="py-2.5 px-3 font-semibold text-slate-400">Propulsion Paradigm</td>
                           <td className="py-2.5 px-3">Reaction mass dependent (<MathBlock math="F = \dot{m} v_e" />)</td>
-                          <td className="py-2.5 px-3 text-amber-200">Propellantless field distortion; geodesic translation without internal <MathBlock math="g" />-force</td>
+                          <td className="py-2.5 px-3 text-amber-200">Exploratory metric gradient translation; long-term conjectural research direction without quantitative tests</td>
                         </tr>
                       </tbody>
                     </table>
@@ -513,41 +542,74 @@ export default function ResearchLibrary() {
                 </div>
 
                 {/* Abstract Box */}
-                <div className="p-6 rounded-xl bg-slate-950/70 border border-slate-800/80 space-y-3">
+                <div className="p-6 rounded-xl bg-slate-950/70 border border-slate-800/80 space-y-4">
                   <span className="text-xs font-mono uppercase text-cyan-400 font-bold tracking-widest block">
                     Abstract
                   </span>
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
-                    In discrete geometric formulations of quantum gravity, projecting the 8-dimensional Gosset lattice (<MathBlock math="E_8" />) down to 3D physical quasicrystals introduces geometric frustration (gap angle <MathBlock math="\delta \approx 7.36^\circ" />) and discrete chiral degeneracy across tetrahedral prototiles. Standard cut-and-project schemes utilize static acceptance windows in perpendicular space that select vertex coordinates but leave internal binary states uncoupled from dynamical equations. We propose an analytic framework wherein internal states are governed by a discrete hypercomplex dynamical system. By defining a quaternionic quadratic map <MathBlock math="q_{n+1} = q_n^2 + C(\phi)" /> parameterized by an icosian constant derived from the golden ratio <MathBlock math="\phi = (1+\sqrt{5})/2" />, we identify the filled Julia-set boundary <MathBlock math="\partial K_{C(\phi)}" /> as a non-local selector functional. Evaluating the projected 240 roots of <MathBlock math="E_8" /> against this boundary partitions the root system into two balanced 120-element sets corresponding to chiral halves of dual 600-cells, providing an algebraic mechanism to resolve tetrahedral shear and packing frustration.
-                  </p>
+                  <div className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans space-y-3">
+                    <p>
+                      We present a dynamical construction that uses a quaternionic quadratic map parameterized by an icosian constant derived from the golden ratio as a ranking mechanism on projected roots of the E₈ lattice.
+                    </p>
+                    <p>
+                      The iterated map is given by
+                    </p>
+                    <MathBlock 
+                      block 
+                      math="q_{n+1} = q_n^2 + C(\phi), \qquad C(\phi) = \tfrac{1}{2}\bigl(\phi + \mathbf{i} + \phi^{-1} \mathbf{j}\bigr)"
+                    />
+                    <p>
+                      where <MathBlock math="\phi = (1+\sqrt{5})/2" />. The Green’s potential of this map,
+                    </p>
+                    <MathBlock 
+                      block 
+                      math="G(q) = \lim_{n\to\infty} 2^{-n} \log_+ |f_C^n(q)|"
+                    />
+                    <p>
+                      induces a ranking of the projected roots. Under generic orthogonal projections of the 240 roots of E₈, this ranking yields an exactly balanced partition into two sets of 120 roots each (net magnetization zero). The ranking is distinct from a pure radial ordering.
+                    </p>
+                    <p>
+                      The construction supplies a deterministic geometric procedure for assigning balanced chiral labels to projected E₈ roots. Whether this labeling anti-correlates on geometric neighbors and thereby reduces tetrahedral packing frustration remains an open conjecture; neighbor-correlation tests performed to date have not confirmed anti-phase ordering.
+                    </p>
+                  </div>
+
+                  {/* Status Note */}
+                  <div className="p-4 rounded-lg bg-cyan-950/40 border border-cyan-800/60 text-xs font-mono text-cyan-200 space-y-1 mt-4">
+                    <span className="font-bold uppercase tracking-wider block text-cyan-400">
+                      Computational Status Note
+                    </span>
+                    <p className="text-slate-300 leading-relaxed font-sans">
+                      Computational examination confirms that the Green’s potential ranking produces an exact 120/120 partition on generic projections of the actual E₈ roots. The same procedure applied to the pure unit and <MathBlock math="\phi" />-scaled icosian shells yields a near-balanced but not exact split. Claims of automatic shear cancellation via anti-correlated chiralities are not supported by the adjacency-graph and nearest-neighbor tests performed so far and are retained only as open research directions.
+                    </p>
+                  </div>
+
                   <div className="pt-2 flex flex-wrap items-center gap-2 text-xs font-mono text-slate-500">
                     <span className="text-slate-400">Keywords:</span>
                     <span className="text-slate-300">E8 Root Lattice</span> •
-                    <span className="text-slate-300">Quaternionic Julia Sets</span> •
-                    <span className="text-slate-300">Golden Ratio</span> •
-                    <span className="text-slate-300">Quasicrystals</span> •
-                    <span className="text-slate-300">600-Cell</span> •
-                    <span className="text-slate-300">Geometric Frustration</span> •
-                    <span className="text-slate-300">Icosians</span>
+                    <span className="text-slate-300">Quaternionic Quadratic Map</span> •
+                    <span className="text-slate-300">Green's Potential Ranking</span> •
+                    <span className="text-slate-300">Balanced 120/120 Partition</span> •
+                    <span className="text-slate-300">Golden Ratio Parameter C(φ)</span> •
+                    <span className="text-slate-300">Tetrahedral Frustration (Conjecture)</span> •
+                    <span className="text-slate-300">Icosian Shells</span>
                   </div>
                 </div>
 
                 {/* Key Findings List */}
                 <div className="space-y-4">
                   <span className="text-xs font-mono uppercase text-slate-400 font-bold tracking-wider block">
-                    Primary Formal Conclusions (Section 8)
+                    Primary Formal Conclusions &amp; Verification Status
                   </span>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div className="p-4 rounded-xl bg-slate-900/50 border border-slate-800 text-xs font-mono text-slate-300 space-y-1">
-                      <span className="text-cyan-400 font-bold block mb-1">1. Exact 120:120 Partition</span>
-                      Deterministic partition into enantiomorphic 120-element classes with zero net macroscopic chirality: <MathBlock math="\sum \sigma(\alpha) = 0" />.
+                      <span className="text-cyan-400 font-bold block mb-1">1. Exact 120:120 Partition (Verified)</span>
+                      Deterministic partition into balanced 120-element sets with net magnetization zero (<MathBlock math="\sum \sigma(\alpha) = 0" />) confirmed under generic orthogonal projections of the 240 E8 roots.
                     </div>
                     <div className="p-4 rounded-xl bg-slate-900/50 border border-slate-800 text-xs font-mono text-slate-300 space-y-1">
-                      <span className="text-amber-400 font-bold block mb-1">2. Frustration Resolution</span>
-                      Binary states correspond to dihedral shear twists <MathBlock math="\Delta\theta = \pm \delta/5 \approx \pm 1.4712^\circ" /> restoring exact 360° edge closure.
+                      <span className="text-amber-400 font-bold block mb-1">2. Frustration Resolution (Open Conjecture)</span>
+                      Whether this chiral labeling anti-correlates on geometric neighbors and resolves the 7.356° tetrahedral packing deficit remains an open conjecture; tests have not confirmed anti-phase ordering.
                     </div>
                     <div className="p-4 rounded-xl bg-slate-900/50 border border-slate-800 text-xs font-mono text-slate-300 space-y-1">
-                      <span className="text-sky-400 font-bold block mb-1">3. Penrose Deflation</span>
+                      <span className="text-sky-400 font-bold block mb-1">3. Penrose Deflation Equivalence</span>
                       Planar restrictions yield Hausdorff dimension <MathBlock math="D_H \approx 1.378" />, concordant with 2D Penrose kite-and-dart inflation eigenvalue <MathBlock math="\lambda = \phi" />.
                     </div>
                   </div>

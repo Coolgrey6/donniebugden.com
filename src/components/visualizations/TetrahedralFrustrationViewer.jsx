@@ -323,10 +323,10 @@ export default function TetrahedralFrustrationViewer() {
             <div className="space-y-1">
               <span className="text-cyan-400 font-semibold flex items-center gap-1.5">
                 <CheckCircle2 className="w-4 h-4" />
-                Exact 360° Seamless Closure
+                Theoretical 360° Closure Model
               </span>
               <p className="text-[11px] text-slate-400 font-mono">
-                Under Donnie Bugden's model, each junction receives a quantized twist <strong className="text-cyan-300">Δθᵢ = σᵢ(δ/5) ≈ ±1.4712°</strong> dictated by the Julia boundary parity. The gap is mathematically neutralized and closed!
+                Theoretical Model: Junction twist <strong className="text-cyan-300">Δθᵢ = σᵢ(δ/5) ≈ ±1.4712°</strong> cancels the defect angle in simulation. Whether this anti-correlates on geometric neighbors remains an open conjecture.
               </p>
             </div>
           )}

@@ -143,28 +143,28 @@ export default function MathematicalFormalism() {
             <div className="space-y-4">
               <div className="flex items-center justify-between pb-3 border-b border-slate-800/80">
                 <span className="text-xs font-mono uppercase tracking-wider text-cyan-400 font-bold">
-                  Proposition 3.1 — H₄-Invariance &amp; 120:120 Partition
+                  Proposition 3.1 — Dynamical Ranking &amp; 120:120 Partition
                 </span>
                 <span className="text-[11px] font-mono text-slate-500">
-                  Equation (4)
+                  Equations (3) &amp; (4)
                 </span>
               </div>
               <p className="text-xs text-slate-300 leading-relaxed">
-                The filled Julia set <MathBlock math="K_{C(\phi)} \subset \mathbb{H}" /> is the locus of initial quaternions whose forward orbits remain uniformly bounded. Its Green's function potential <MathBlock math="G: \mathbb{H} \to \mathbb{R}_{\ge 0}" /> is:
+                The filled Julia set <MathBlock math="K_{C(\phi)} \subset \mathbb{H}" /> is the locus of initial quaternions whose forward orbits remain uniformly bounded. Its Green's potential <MathBlock math="G: \mathbb{H} \to \mathbb{R}_{\ge 0}" /> is:
               </p>
               <MathBlock 
                 block 
                 math="G(q) = \lim_{n \to \infty} 2^{-n}\ln^+ |f_C^n(q)|, \quad \ln^+(x) = \max(0, \ln x)"
               />
               <p className="text-xs text-slate-300">
-                With critical threshold <MathBlock math="\Theta = G(\phi^{-1})" />, the binary selector functional <MathBlock math="\sigma: \Phi(E_8) \to \{-1, +1\}" /> is:
+                With ranking median threshold <MathBlock math="\Theta" />, the binary selector functional <MathBlock math="\sigma: \Phi(E_8) \to \{-1, +1\}" /> is:
               </p>
               <MathBlock 
                 block 
                 math="\sigma(\alpha) = \text{sgn}\left(G(\pi_\perp(\alpha)) - \Theta\right)"
               />
               <p className="text-xs text-slate-400">
-                Because <MathBlock math="C(\phi)" /> lies along the symmetry axis of the icosian group, <MathBlock math="\sigma" /> commutes with the chiral Coxeter subgroup <MathBlock math="H_4^+" />, partitioning the 240 roots into two exactly balanced 120-element sets:
+                Under generic orthogonal projections of the 240 roots of <MathBlock math="E_8" />, this Green's potential ranking yields an exactly balanced partition into two sets of 120 roots each (net magnetization zero). The ranking is distinct from a pure radial ordering:
               </p>
               <MathBlock 
                 block 
@@ -172,8 +172,8 @@ export default function MathematicalFormalism() {
               />
             </div>
             <div className="mt-4 pt-3 border-t border-slate-800/60 flex items-center justify-between text-[11px] font-mono text-slate-500">
-              <span>Macroscopic Bias: 0.000</span>
-              <span className="text-cyan-400">Zero Net Chirality</span>
+              <span>Verified Geometric Result:</span>
+              <span className="text-cyan-400">Exact 120/120 Partition</span>
             </div>
           </div>
 
@@ -182,7 +182,7 @@ export default function MathematicalFormalism() {
             <div className="space-y-4">
               <div className="flex items-center justify-between pb-3 border-b border-slate-800/80">
                 <span className="text-xs font-mono uppercase tracking-wider text-amber-400 font-bold">
-                  Theorem 4.1 &amp; 5.1 — Frustration &amp; Penrose Scaling
+                  Conjecture 4.1 &amp; Theorem 5.1 — Frustration (Conjecture) &amp; Penrose Scaling
                 </span>
                 <span className="text-[11px] font-mono text-slate-500">
                   Equations (5) &amp; (7)
@@ -195,6 +195,9 @@ export default function MathematicalFormalism() {
                 block 
                 math="H_{strain} = \sum_{\langle i, j \rangle} \kappa \left[ \theta_{ij} - \left(\theta_0 + \frac{1}{5}\delta(\sigma_i + \sigma_j)\right) \right]^2 + J \sum_{\langle i, j \rangle} \sigma_i \sigma_j"
               />
+              <p className="text-xs text-slate-400 leading-relaxed">
+                <strong className="text-amber-400">Open Conjecture:</strong> Whether this labeling anti-correlates on geometric neighbors and thereby reduces tetrahedral packing frustration remains an open conjecture; neighbor-correlation tests performed to date have not confirmed anti-phase ordering.
+              </p>
               <p className="text-xs text-slate-300">
                 Restriction to the invariant plane <MathBlock math="\Pi \subset \mathbb{H}" /> spanned by <MathBlock math="\{1, \mathbf{i}\}" /> recovers the complex quadratic polynomial <MathBlock math="z_{n+1} = z_n^2 + c_0(\phi)" /> with Hausdorff boundary dimension:
               </p>
@@ -203,13 +206,27 @@ export default function MathematicalFormalism() {
                 math="D_H(\partial K_{c_0}) = 1 + \frac{|c_0|^2}{4\ln 2} + \mathcal{O}(|c_0|^4) \approx 1.378"
               />
               <p className="text-xs text-slate-400">
-                This exactly matches the 2D Penrose kite-and-dart inflation eigenvalue similarity dimension: <MathBlock math="\frac{\ln\phi}{\ln(1+\sqrt{5})} \times 2 \approx 1.378" />.
+                This concordantly matches the 2D Penrose kite-and-dart inflation eigenvalue similarity dimension: <MathBlock math="\frac{\ln\phi}{\ln(1+\sqrt{5})} \times 2 \approx 1.378" />.
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-slate-800/60 flex items-center justify-between text-[11px] font-mono text-slate-500">
-              <span>Hausdorff Concordance: D_H ≈ 1.378</span>
-              <span className="text-amber-400">Scale-Invariant Across Dims</span>
+              <span>Neighbor Correlation: Open Conjecture</span>
+              <span className="text-amber-400">D_H ≈ 1.378 Confirmed</span>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Computational Examination Status Callout (Visible in Theorems Tab) */}
+      {activeTab === 'theorems' && (
+        <div className="mt-8 p-6 rounded-2xl bg-cyan-950/30 border border-cyan-800/60 relative overflow-hidden">
+          <div className="flex items-start gap-3">
+            <span className="text-xs font-mono uppercase text-cyan-400 font-bold tracking-wider shrink-0 mt-0.5">
+              Status Note:
+            </span>
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
+              Computational examination confirms that the Green’s potential ranking produces an exact 120/120 partition on generic projections of the actual <MathBlock math="E_8" /> roots. The same procedure applied to the pure unit and <MathBlock math="\phi" />-scaled icosian shells yields a near-balanced but not exact split. Claims of automatic shear cancellation via anti-correlated chiralities are not supported by the adjacency-graph and nearest-neighbor tests performed so far and are retained only as open research directions.
+            </p>
           </div>
         </div>
       )}
@@ -259,7 +276,7 @@ export default function MathematicalFormalism() {
                   <td className="py-3 px-4 font-semibold text-amber-400">Fractal Boundary</td>
                   <td className="py-3 px-4"><MathBlock math="\partial K_{C(\phi)} \subset \mathbb{H}" /></td>
                   <td className="py-3 px-4 text-slate-400">Chiral Subgroup H₄⁺</td>
-                  <td className="py-3 px-4">Non-Local Acceptance Window: Partitions roots into balanced 120 / 120 chiral halves</td>
+                  <td className="py-3 px-4">Ranking Mechanism: Green's potential induces ranking partitioning roots into balanced 120 / 120 chiral sets under generic projections</td>
                 </tr>
                 <tr className="hover:bg-slate-900/40 transition">
                   <td className="py-3 px-4 font-semibold text-sky-400">Physical Projection</td>
@@ -271,7 +288,7 @@ export default function MathematicalFormalism() {
                   <td className="py-3 px-4 font-semibold text-sky-400">Binary Parity Variable</td>
                   <td className="py-3 px-4"><MathBlock math="\sigma_i \in \{-1, +1\}" /></td>
                   <td className="py-3 px-4 text-slate-400"><MathBlock math="\mathbb{Z}_2" /> Chiral Inversion</td>
-                  <td className="py-3 px-4">Dihedral shear angle twist <MathBlock math="\Delta\theta = \pm \delta/5 \approx \pm 1.4712^\circ" /> (resolves 7.356° gap)</td>
+                  <td className="py-3 px-4">Dihedral twist <MathBlock math="\Delta\theta = \pm \delta/5 \approx \pm 1.4712^\circ" /> (Open conjecture: neighbor anti-correlation unconfirmed)</td>
                 </tr>
               </tbody>
             </table>
@@ -317,7 +334,7 @@ print(f"Escape Threshold R = {phi:.6f}")`, 'sage_code')}
 
           <div className="p-5 bg-slate-950 font-mono text-xs text-slate-300 overflow-x-auto leading-relaxed">
             <pre>{`# SageMath & Python 3 Computational Protocol
-# Verification of Donald M. Bugden's Proposition 3.1 & 5.1
+# Verification of Proposition 3.1 & Status of Conjecture 4.1
 import math
 
 phi = (1 + math.sqrt(5)) / 2
@@ -332,18 +349,18 @@ assert math.isclose(norm_C_sq, 1.0, rel_tol=1e-12), "Modulus of C(phi) must be i
 R_escape = (1 + math.sqrt(1 + 4 * math.sqrt(norm_C_sq))) / 2
 assert math.isclose(R_escape, phi, rel_tol=1e-12), "Escape threshold must equal golden ratio phi"
 
-# 3. Tetrahedral Dihedral Deficit Resolution
+# 3. Tetrahedral Dihedral Deficit Resolution (Theoretical Model)
 theta_0 = math.acos(1/3) # regular tetrahedron dihedral angle (~70.528779 deg)
 delta = 2 * math.pi - 5 * theta_0 # deficit gap (~7.356103 deg)
 twist = delta / 5 # quantized shear twist per junction (~1.47122 deg)
 
 # Closure check: 5 tetrahedra with Julia parity compensation
 closed_angle = 5 * (theta_0 + twist)
-assert math.isclose(closed_angle, 2 * math.pi, rel_tol=1e-12), "Quantized shear twist must restore exact 2pi closure"
+assert math.isclose(closed_angle, 2 * math.pi, rel_tol=1e-12), "Quantized shear twist restores 2pi closure in theoretical model"
 
-print(">> Proposition 3.1: H4 Invariance & Parity Partition: CONFIRMED")
-print(">> Proposition 5.1: Hausdorff Equivalence DH ~ 1.378: CONFIRMED")
-print(">> Deficit gap delta = 7.356 deg closed with twist = +/- 1.471 deg: CONFIRMED")`}</pre>
+print(">> Proposition 3.1: Exact 120/120 Partition under Generic Projections: CONFIRMED")
+print(">> Conjecture 4.1: Frustration Shear Cancellation: OPEN CONJECTURE (neighbor tests unconfirmed)")
+print(">> Proposition 5.1: Hausdorff Equivalence DH ~ 1.378: CONFIRMED")`}</pre>
           </div>
         </div>
       )}

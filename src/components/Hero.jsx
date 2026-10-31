@@ -72,7 +72,7 @@ export default function Hero({ onOpenTerminal, onOpenContact, onSwitchToTheory2 
 
       {/* Required Hero Subtitle */}
       <p className="text-base sm:text-xl text-slate-300 max-w-3xl leading-relaxed mb-10 font-normal">
-        Consulting at the intersection of high-dimensional lattice theory, non-local quantum state selection, and advanced computational architectures.
+        Consulting on discrete geometry, exceptional Lie systems, and hypercomplex dynamical ranking on E8 roots.
       </p>
 
       {/* Call to Actions */}
@@ -116,13 +116,13 @@ export default function Hero({ onOpenTerminal, onOpenContact, onSwitchToTheory2 
 
         <div className="glass-panel p-4 rounded-xl border border-slate-800 text-left">
           <span className="text-[10px] font-mono uppercase text-slate-400 tracking-wider block mb-1">
-            Dual 600-Cell Split
+            Generic Projection Split
           </span>
           <div className="text-2xl sm:text-3xl font-extrabold font-mono text-amber-400">
             120 : 120
           </div>
           <p className="text-[11px] text-slate-500 font-mono mt-0.5">
-            Balanced Chiral Parity Partition
+            Balanced Parity Partition (Verified)
           </p>
         </div>
 
@@ -146,7 +146,7 @@ export default function Hero({ onOpenTerminal, onOpenContact, onSwitchToTheory2 
             Δθ = ±1.471°
           </div>
           <p className="text-[11px] text-slate-500 font-mono mt-0.5">
-            Exact Topological Strain Closure
+            Frustration Reduction (Conjecture)
           </p>
         </div>
       </div>

@@ -21,62 +21,62 @@ export default function ProtocolsDashboardODT() {
   const useCases = [
     {
       id: "propellantless-propulsion",
-      title: "Propellantless Deep-Space Geodesic Translation",
-      subtitle: "Alcubierre-type metric bubble without exotic matter requirements",
-      category: "Aerospace & Defense Propulsion",
-      badge: "TRL 2 • Conceptual Validation",
+      title: "Exploratory Geodesic Translation Model",
+      subtitle: "Hypothetical metric distortion model without exotic matter requirements",
+      category: "Aerospace Propulsion Research",
+      badge: "TRL 1 • Exploratory Proposal",
       icon: <Rocket className="w-5 h-5 text-amber-400" />,
-      description: "By establishing an asymmetric dimensional gradient across a vehicle boundary (forward descent phase φ^-D inducing metric contraction, aft ascent phase φ^+D inducing metric expansion), the vehicle translates along an induced spacetime slope. Eliminates the mass penalty of propellant tanks, enabling relativistic and super-orbital velocity without reaction mass.",
+      description: "Explores the theoretical possibility of establishing an asymmetric dimensional gradient across a vehicle boundary (forward descent phase φ^-D hypothesized to induce metric contraction, aft ascent phase φ^+D inducing expansion). Investigated as a conceptual long-term direction; has not yet been derived from first principles or quantitatively tested.",
       parameters: [
-        { label: "Specific Impulse (I_sp)", value: "Infinite (Non-chemical)" },
-        { label: "Propellant Fraction", value: "0% (Zero onboard reaction mass)" },
-        { label: "Power Coupling", value: "Resonant EM φ-harmonics" },
-        { label: "Metric Slope", value: "Δg_μν ≈ 10^-5 to 10^-3 / meter" }
+        { label: "Impulse Model", value: "Field-induced (Theoretical)" },
+        { label: "Propellant Concept", value: "Zero reaction mass (Hypothesis)" },
+        { label: "Modulation", value: "Resonant φ-harmonics (Conjecture)" },
+        { label: "Empirical Status", value: "Untested quantitatively" }
       ]
     },
     {
       id: "inertial-decoupling",
-      title: "Inertial Decoupling & Extreme G-Force Elimination",
-      subtitle: "Zero proper acceleration interior for piloted and sensitive payloads",
-      category: "Extreme Maneuverability & Flight Dynamics",
-      badge: "TRL 2 • Numerical Proof",
+      title: "Hyper-Dimensional Momentum Shunting (Hypothesis)",
+      subtitle: "Theoretical framework exploring zero proper acceleration envelopes",
+      category: "Theoretical Flight Dynamics",
+      badge: "TRL 1 • Theoretical Hypothesis",
       icon: <ShieldCheck className="w-5 h-5 text-cyan-400" />,
-      description: "Hyper-dimensional geodesic projection shunts local 3D momentum into closed orthogonal E8 internal coordinates y^a. Because proper acceleration a^μ_proper = 0 inside the phase-slipped field envelope, craft can execute instantaneous right-angle vector changes at Mach 20+ with zero internal G-load on crew or fragile quantum payloads.",
+      description: "Investigates whether hyper-dimensional geodesic projection could shunt local 3-momentum into closed orthogonal internal coordinates y^a to cancel proper acceleration (a^μ_proper = 0). This physical interpretation remains an exploratory hypothesis awaiting rigorous mathematical derivation and empirical verification.",
       parameters: [
-        { label: "Internal G-Force", value: "0.0 g during arbitrary turns" },
-        { label: "Acoustic Signature", value: "Zero sonic boom (Streamline field)" },
-        { label: "Structural Stress", value: "Zero aerodynamic shear" },
-        { label: "Momentum Buffer", value: "8D E8 root lattice invariant" }
+        { label: "Internal G-Force", value: "Hypothesized 0.0 g envelope" },
+        { label: "Trajectory Model", value: "Non-inertial geodesic shift" },
+        { label: "Lattice Basis", value: "8D E8 root invariant" },
+        { label: "Empirical Status", value: "Untested quantitatively" }
       ]
     },
     {
       id: "gravimetric-stealth",
-      title: "Gravimetric Stealth & Quantum Sensor Masking",
-      subtitle: "Active metric flattening neutralizing quantum gravity gradiometers",
-      category: "Electronic & Gravitational Warfare",
-      badge: "TRL 3 • Laboratory Target",
+      title: "Gravitational Signature Modulation (Conjecture)",
+      subtitle: "Conceptual metric flattening targeting quantum sensor attenuation",
+      category: "Quantum Metrology & Sensing",
+      badge: "TRL 1 • Conceptual Model",
       icon: <Lock className="w-5 h-5 text-emerald-400" />,
-      description: "Next-generation quantum gravimeters (such as cold-atom atom interferometers) detect sub-surface bunkers and concealed military payloads by measuring mass anomalies. The ODT metric distortion operator can actively nullify an object's external gravitational signature (m_eff → 0), rendering submarines, silos, or mobile craft invisible to gravimetric detection.",
+      description: "Explores whether the ODT metric distortion operator could theoretically modulate an object's external gravitational signature (m_eff → 0) against precision quantum gravimeters. Presented as an exploratory concept without current experimental validation.",
       parameters: [
-        { label: "Signature Attenuation", value: "-80 dB in gravitational gradient" },
-        { label: "Sensor Defeat", value: "Cold-atom atom interferometry" },
-        { label: "Active Response", value: "< 10 microseconds phase lock" },
-        { label: "Effective Mass", value: "m_eff / m_0 controllable [0.0..1.0]" }
+        { label: "Theoretical Target", value: "Gravitational gradient attenuation" },
+        { label: "Sensor Benchmark", value: "Cold-atom interferometry" },
+        { label: "Effective Mass", value: "m_eff / m_0 controllable [0.0..1.0]" },
+        { label: "Empirical Status", value: "Untested quantitatively" }
       ]
     },
     {
       id: "vacuum-energy-extraction",
-      title: "Dynamic Casimir & Vacuum Energy Regulation",
-      subtitle: "Harvesting non-equilibrium stress tensors via Lucas-mode harmonic cavities",
-      category: "Advanced Energy & Power Systems",
-      badge: "TRL 1 • Fundamental Theory",
+      title: "Dynamic Casimir & Vacuum Energy Modeling",
+      subtitle: "Theoretical evaluation of non-equilibrium stress tensors via Lucas modes",
+      category: "Advanced Energy & Field Theory",
+      badge: "TRL 1 • Exploratory Theory",
       icon: <Zap className="w-5 h-5 text-sky-400" />,
-      description: "Summing vacuum energy modes across the 14-step ODT cycle produces exact golden-ratio phase cancellation (⟨ρ_vac⟩ ≈ 0). In non-equilibrium cavities driven at high-order Lucas frequencies L_k = φ^k + (-φ)^-k, local negative energy densities can be sustained to stabilize microscopic wormhole topologies or extract zero-point energy gradients.",
+      description: "Examines the mathematical structure of summing vacuum energy modes across the 14-step ODT cycle, evaluating golden-ratio phase relationships in Lucas-mode cavities. Conjectural research direction requiring experimental validation.",
       parameters: [
-        { label: "Vacuum Phase Balance", value: "Lucas number mode symmetry" },
-        { label: "Casimir Inversion", value: "Repulsive regime (F_C > 0)" },
-        { label: "Operating Frequencies", value: "THz to microwave φ-harmonics" },
-        { label: "Energy Source", value: "Spacetime topological geometry" }
+        { label: "Harmonic Symmetry", value: "Lucas number mode symmetry" },
+        { label: "Casimir Regime", value: "Hypothesized sign modulation" },
+        { label: "Frequency Scale", value: "THz to microwave φ-harmonics" },
+        { label: "Empirical Status", value: "Untested quantitatively" }
       ]
     }
   ];
@@ -120,11 +120,23 @@ export default function ProtocolsDashboardODT() {
           Strategic Defense, Aerospace &amp; Experimental Roadmap
         </div>
         <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-100 tracking-tight max-w-4xl">
-          Transformative Use Cases &amp; Experimental Verification
+          Exploratory Applications &amp; Experimental Verification Roadmap
         </h2>
         <p className="mt-4 text-slate-400 text-sm sm:text-base max-w-3xl leading-relaxed">
-          Operational deployment pathways for the Oscillating Dimensional Trajectory framework across defense propulsion, extreme maneuverability, and precision quantum test protocols.
+          Conceptual exploration pathways for the Oscillating Dimensional Trajectory framework across advanced field dynamics, high-dimensional geodesics, and precision quantum test protocols.
         </p>
+
+        {/* Theoretical & Empirical Status Note */}
+        <div className="mt-6 p-5 rounded-2xl bg-amber-950/30 border border-amber-800/60 max-w-3xl text-left">
+          <div className="flex items-start gap-3">
+            <span className="text-xs font-mono uppercase text-amber-400 font-bold tracking-wider shrink-0 mt-0.5">
+              Status Note:
+            </span>
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
+              The mathematical definition of <MathBlock math="D(n)" /> is exact and periodic. Physical consequences relating the trajectory to quantum or cosmological phenomena remain conjectural and are presented as long-term research directions rather than established results. These concepts have not yet been quantitatively tested.
+            </p>
+          </div>
+        </div>
 
         {/* Section Selector */}
         <div className="mt-8 flex items-center gap-2 p-1.5 bg-slate-950/80 rounded-xl border border-slate-800 text-xs font-mono">

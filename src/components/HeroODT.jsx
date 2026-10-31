@@ -23,22 +23,22 @@ export default function HeroODT({ onOpenTerminal, onOpenContact, onSwitchToTheor
         {/* Framework Indicator Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-950/70 border border-amber-600/60 text-amber-300 text-xs font-mono uppercase tracking-widest shadow-[0_0_20px_rgba(245,158,11,0.2)]">
           <Orbit className="w-4 h-4 text-amber-400 animate-spin" style={{ animationDuration: '8s' }} />
-          <span>Theory II: Oscillating Dimensional Trajectories on E8</span>
+          <span>Theory II: Oscillating Dimensional Trajectories</span>
           <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-          <span className="text-slate-300">Gravitational Modification &amp; Inertial Decoupling</span>
+          <span className="text-slate-300">Exploratory Geometric Framework</span>
         </div>
 
         {/* Main Title */}
         <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-slate-100 tracking-tight leading-[1.1] max-w-5xl">
-          Dynamic Metric Distortion &amp; Anti-Gravity via{' '}
+          Oscillating Dimensional Trajectories &amp;{' '}
           <span className="bg-gradient-to-r from-amber-400 via-orange-300 to-cyan-400 bg-clip-text text-transparent">
-            E8 Dimensional Trajectories
+            Scale-Factor Dynamics
           </span>
         </h1>
 
         {/* Subtitle */}
         <p className="max-w-3xl mx-auto text-base sm:text-lg text-slate-300 leading-relaxed font-sans">
-          Extending Donald M. Bugden's discrete mathematical framework: treating spatial dimensionality not as a static manifold, but as an oscillating operator <MathBlock math="D(n) = 8 - |(n \bmod 14) - 7|" />. Localized spacetime curvature cancellation, golden-ratio stress inversion, and genuine propellantless field propulsion.
+          We introduce a recursive dimensional operator that treats spatial dimensionality as a discrete oscillating function rather than a fixed background: <MathBlock math="D(n) = 8 - |(n \bmod 14) - 7|" />. When modulated by powers of the golden ratio <MathBlock math="S_n = \phi^{(-1)^n \cdot D(n)}" />, the construction generates a discrete spectrum of scale factors. Physical interpretations (quantum non-locality, cosmological expansion, anti-gravity) are exploratory frameworks undergoing preliminary theoretical investigation.
         </p>
 
         {/* Action Buttons */}
@@ -87,25 +87,25 @@ export default function HeroODT({ onOpenTerminal, onOpenContact, onSwitchToTheor
           <div className="p-4 rounded-xl bg-slate-950/60 border border-slate-800/80 space-y-1">
             <span className="text-xs text-slate-500">Modular Clock</span>
             <div className="text-lg font-bold text-amber-400">14-Step Cycle</div>
-            <span className="text-[11px] text-slate-400">Triangular D(n) ∈ 1D ↔ 8D</span>
+            <span className="text-[11px] text-slate-400">Exact D(n) ∈ 1D ↔ 8D</span>
           </div>
 
           <div className="p-4 rounded-xl bg-slate-950/60 border border-slate-800/80 space-y-1">
-            <span className="text-xs text-slate-500">Resonance Scaling</span>
-            <div className="text-lg font-bold text-cyan-400">φ^(±D(n))</div>
-            <span className="text-[11px] text-slate-400">Non-dispersive harmonic tuning</span>
+            <span className="text-xs text-slate-500">Scale Factors</span>
+            <div className="text-lg font-bold text-cyan-400">S_n = φ^(±D(n))</div>
+            <span className="text-[11px] text-slate-400">Discrete spectrum</span>
           </div>
 
           <div className="p-4 rounded-xl bg-slate-950/60 border border-slate-800/80 space-y-1">
             <span className="text-xs text-slate-500">Gravitational Mass</span>
-            <div className="text-lg font-bold text-emerald-400">m_eff ≤ 0</div>
-            <span className="text-[11px] text-slate-400">Descent curvature cancellation</span>
+            <div className="text-lg font-bold text-emerald-400">m_eff ≤ 0 (Model)</div>
+            <span className="text-[11px] text-slate-400">Exploratory / Conjectural</span>
           </div>
 
           <div className="p-4 rounded-xl bg-slate-950/60 border border-slate-800/80 space-y-1">
             <span className="text-xs text-slate-500">Inertial Coupling</span>
             <div className="text-lg font-bold text-sky-400">a^μ_proper = 0</div>
-            <span className="text-[11px] text-slate-400">Momentum shunted into 8D roots</span>
+            <span className="text-[11px] text-slate-400">Untested physical hypothesis</span>
           </div>
         </div>
       </div>
