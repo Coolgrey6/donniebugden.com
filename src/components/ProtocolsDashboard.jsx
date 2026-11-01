@@ -17,6 +17,7 @@ import {
   ArrowRight,
   Database
 } from 'lucide-react';
+import { ComputationalStatusNoteBody } from '../content/theoryIExactArithmetic';
 
 export default function ProtocolsDashboard() {
   const [activeProtocol, setActiveProtocol] = useState(1);
@@ -122,13 +123,13 @@ export default function ProtocolsDashboard() {
       </div>
 
       {/* Computational Examination Status Callout */}
-      <div className="p-4 bg-cyan-950/30 border-b border-cyan-800/50 px-6 text-xs text-slate-300 font-mono flex items-start gap-3">
-        <span className="text-cyan-400 font-bold uppercase tracking-wider shrink-0 mt-0.5">
+      <div className="p-4 bg-cyan-950/30 border-b border-cyan-800/50 px-6 text-xs text-slate-300 flex items-start gap-3">
+        <span className="text-cyan-400 font-bold uppercase tracking-wider shrink-0 mt-0.5 font-mono">
           Status Note:
         </span>
-        <p className="leading-relaxed">
-          Computational examination confirms that the Green’s potential ranking produces an exact 120/120 partition on generic projections of the actual E8 roots. Claims of automatic shear cancellation via anti-correlated chiralities are not supported by the adjacency-graph and nearest-neighbor tests performed so far and are retained only as open research directions.
-        </p>
+        <div className="flex-1 min-w-0">
+          <ComputationalStatusNoteBody useE8MathBlock={false} verificationDetail="full" />
+        </div>
       </div>
 
       {/* Protocol Content Body */}

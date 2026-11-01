@@ -1,5 +1,9 @@
 import React from 'react';
 import MathBlock from './MathBlock';
+import {
+  ComputationalStatusNoteBody,
+  ExactArithmeticCertificateSection,
+} from '../content/theoryIExactArithmetic';
 import { 
   Atom, 
   Cpu, 
@@ -98,7 +102,7 @@ export default function ExecutiveSummary() {
           <div className="w-10 h-10 rounded-xl bg-cyan-500/20 border border-cyan-500/40 flex items-center justify-center text-cyan-300 shrink-0 mt-0.5">
             <CheckCircle2 className="w-5 h-5" />
           </div>
-          <div className="space-y-2">
+          <div className="space-y-2 flex-1 min-w-0">
             <div className="flex items-center gap-2 flex-wrap">
               <span className="text-xs font-mono uppercase text-cyan-400 font-bold tracking-wider">
                 Computational Examination Status Note
@@ -107,9 +111,10 @@ export default function ExecutiveSummary() {
                 Verified Result &amp; Open Conjecture
               </span>
             </div>
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              Computational examination confirms that the Green’s potential ranking produces an exact 120/120 partition on generic projections of the actual <MathBlock math="E_8" /> roots. The same procedure applied to the pure unit and <MathBlock math="\phi" />-scaled icosian shells yields a near-balanced but not exact split. Claims of automatic shear cancellation via anti-correlated chiralities are not supported by the adjacency-graph and nearest-neighbor tests performed so far and are retained only as open research directions.
-            </p>
+            <ComputationalStatusNoteBody />
+            <div className="pt-4 border-t border-cyan-800/50">
+              <ExactArithmeticCertificateSection headingClassName="text-base font-bold text-slate-100 tracking-wide" />
+            </div>
           </div>
         </div>
       </div>

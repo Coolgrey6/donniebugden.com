@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import MathBlock from './MathBlock';
+import {
+  ComputationalStatusNoteBody,
+  ExactArithmeticCertificateSection,
+} from '../content/theoryIExactArithmetic';
 import { 
   BookOpen, 
   Copy, 
@@ -224,9 +228,12 @@ export default function MathematicalFormalism() {
             <span className="text-xs font-mono uppercase text-cyan-400 font-bold tracking-wider shrink-0 mt-0.5">
               Status Note:
             </span>
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
-              Computational examination confirms that the Green’s potential ranking produces an exact 120/120 partition on generic projections of the actual <MathBlock math="E_8" /> roots. The same procedure applied to the pure unit and <MathBlock math="\phi" />-scaled icosian shells yields a near-balanced but not exact split. Claims of automatic shear cancellation via anti-correlated chiralities are not supported by the adjacency-graph and nearest-neighbor tests performed so far and are retained only as open research directions.
-            </p>
+            <div className="flex-1 min-w-0">
+              <ComputationalStatusNoteBody />
+              <div className="pt-4 mt-4 border-t border-cyan-800/50">
+                <ExactArithmeticCertificateSection headingClassName="text-base font-bold text-slate-100 tracking-wide" />
+              </div>
+            </div>
           </div>
         </div>
       )}
