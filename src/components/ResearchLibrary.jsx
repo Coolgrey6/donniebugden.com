@@ -14,6 +14,10 @@ import {
   Table as TableIcon
 } from 'lucide-react';
 import { trackEvent } from '../utils/analytics';
+import {
+  ComputationalStatusNoteBody,
+  ExactArithmeticCertificateSection,
+} from '../content/theoryIExactArithmetic';
 
 export default function ResearchLibrary() {
   // Top-level paper selection: 'odt' (This Paper: Anti-Gravity/ODT), 'hypercomplex' (The Other Paper: Quasicrystals), or 'all' (Dual Archive)
@@ -573,13 +577,14 @@ export default function ResearchLibrary() {
                   </div>
 
                   {/* Status Note */}
-                  <div className="p-4 rounded-lg bg-cyan-950/40 border border-cyan-800/60 text-xs font-mono text-cyan-200 space-y-1 mt-4">
+                  <div className="p-4 rounded-lg bg-cyan-950/40 border border-cyan-800/60 text-xs font-mono text-cyan-200 space-y-4 mt-4">
                     <span className="font-bold uppercase tracking-wider block text-cyan-400">
                       Computational Status Note
                     </span>
-                    <p className="text-slate-300 leading-relaxed font-sans">
-                      Computational examination confirms that the Green’s potential ranking produces an exact 120/120 partition on generic projections of the actual E₈ roots. The same procedure applied to the pure unit and <MathBlock math="\phi" />-scaled icosian shells yields a near-balanced but not exact split. Claims of automatic shear cancellation via anti-correlated chiralities are not supported by the adjacency-graph and nearest-neighbor tests performed so far and are retained only as open research directions.
-                    </p>
+                    <ComputationalStatusNoteBody />
+                    <div className="pt-4 border-t border-cyan-800/50">
+                      <ExactArithmeticCertificateSection headingClassName="text-sm font-bold text-slate-100 tracking-wide" />
+                    </div>
                   </div>
 
                   <div className="pt-2 flex flex-wrap items-center gap-2 text-xs font-mono text-slate-500">
