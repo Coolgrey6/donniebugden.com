@@ -119,7 +119,7 @@ export default function App() {
             <MathematicalFormalism />
 
             {/* Section 4: Interactive 3D WebGL / Dynamical Visualizers */}
-            <VisualizersSection />
+            <VisualizersSection onOpenResearchNote={() => setResearchNoteOpen(true)} />
 
             {/* Section 5: Experimental Verification Protocols */}
             <section id="protocols" className="py-20 px-4 max-w-7xl mx-auto border-t border-slate-800/80">
