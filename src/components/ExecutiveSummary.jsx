@@ -3,6 +3,7 @@ import MathBlock from './MathBlock';
 import {
   ComputationalStatusNoteBody,
   ExactArithmeticCertificateSection,
+  ShareableResearchNoteCallout,
 } from '../content/theoryIExactArithmetic';
 import { 
   Atom, 
@@ -16,7 +17,7 @@ import {
   Maximize2
 } from 'lucide-react';
 
-export default function ExecutiveSummary() {
+export default function ExecutiveSummary({ onOpenResearchNote }) {
   return (
     <section id="theory" className="py-20 px-4 max-w-7xl mx-auto border-t border-slate-800/80">
       <div className="flex flex-col items-center text-center mb-14">
@@ -112,8 +113,12 @@ export default function ExecutiveSummary() {
               </span>
             </div>
             <ComputationalStatusNoteBody />
-            <div className="pt-4 border-t border-cyan-800/50">
-              <ExactArithmeticCertificateSection headingClassName="text-base font-bold text-slate-100 tracking-wide" />
+            <div className="pt-4 border-t border-cyan-800/50 space-y-4">
+              <ExactArithmeticCertificateSection
+                headingClassName="text-base font-bold text-slate-100 tracking-wide"
+                className="p-4 rounded-xl bg-emerald-950/20 border border-emerald-500/20"
+              />
+              <ShareableResearchNoteCallout onOpenResearchNote={onOpenResearchNote} />
             </div>
           </div>
         </div>

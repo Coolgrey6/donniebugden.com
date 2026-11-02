@@ -4,6 +4,7 @@ import { FileText, CheckCircle2, BookOpen, X, AlertTriangle } from 'lucide-react
 import {
   ComputationalStatusNoteBody,
   ExactArithmeticCertificateSection,
+  TheoryIOpenQuestionsList,
 } from '../content/theoryIExactArithmetic';
 
 export default function ResearchNote({ onClose }) {
@@ -153,7 +154,18 @@ export default function ResearchNote({ onClose }) {
 
           <hr className="border-slate-800/80" />
 
-          <ExactArithmeticCertificateSection />
+          <ExactArithmeticCertificateSection className="p-4 rounded-xl bg-emerald-950/20 border border-emerald-500/20" />
+
+          <hr className="border-slate-800/80" />
+
+          <div className="space-y-4">
+            <h3 className="text-lg font-bold text-slate-100 tracking-wide">Open Questions (Explicit)</h3>
+            <p className="text-sm text-slate-400 leading-relaxed">
+              The certified computational theorem covers the balanced partition and exact-arithmetic
+              certificate only. The following remain open or exploratory:
+            </p>
+            <TheoryIOpenQuestionsList />
+          </div>
 
           <hr className="border-slate-800/80" />
 

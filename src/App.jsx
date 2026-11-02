@@ -5,6 +5,7 @@ import TerminalModal from './components/TerminalModal';
 import ContactModal from './components/ContactModal';
 import ConsultingServices from './components/ConsultingServices';
 import ResearchLibrary from './components/ResearchLibrary';
+import ResearchNote from './components/ResearchNote';
 
 // Theory I Components (Original & 100% Unchanged)
 import Hero from './components/Hero';
@@ -25,6 +26,7 @@ import { trackTheoryView, trackEvent } from './utils/analytics';
 export default function App() {
   const [terminalOpen, setTerminalOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
+  const [researchNoteOpen, setResearchNoteOpen] = useState(false);
 
   // Determine initial theory based on URL path or hash
   const getInitialTheory = () => {
@@ -111,7 +113,7 @@ export default function App() {
             />
 
             {/* Section 2: The Theory & Executive Summary */}
-            <ExecutiveSummary />
+            <ExecutiveSummary onOpenResearchNote={() => setResearchNoteOpen(true)} />
 
             {/* Section 3: Mathematical Formalism & KaTeX Proofs */}
             <MathematicalFormalism />
@@ -178,6 +180,10 @@ export default function App() {
         isOpen={contactOpen}
         onClose={() => setContactOpen(false)}
       />
+
+      {researchNoteOpen && (
+        <ResearchNote onClose={() => setResearchNoteOpen(false)} />
+      )}
     </div>
   );
 }

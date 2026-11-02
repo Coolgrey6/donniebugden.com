@@ -231,7 +231,10 @@ export default function MathematicalFormalism() {
             <div className="flex-1 min-w-0">
               <ComputationalStatusNoteBody />
               <div className="pt-4 mt-4 border-t border-cyan-800/50">
-                <ExactArithmeticCertificateSection headingClassName="text-base font-bold text-slate-100 tracking-wide" />
+                <ExactArithmeticCertificateSection
+                  headingClassName="text-base font-bold text-slate-100 tracking-wide"
+                  className="p-4 rounded-xl bg-emerald-950/20 border border-emerald-500/20"
+                />
               </div>
             </div>
           </div>

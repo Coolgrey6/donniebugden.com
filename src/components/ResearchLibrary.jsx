@@ -583,7 +583,10 @@ export default function ResearchLibrary() {
                     </span>
                     <ComputationalStatusNoteBody />
                     <div className="pt-4 border-t border-cyan-800/50">
-                      <ExactArithmeticCertificateSection headingClassName="text-sm font-bold text-slate-100 tracking-wide" />
+                      <ExactArithmeticCertificateSection
+                        headingClassName="text-sm font-bold text-slate-100 tracking-wide"
+                        className="p-4 rounded-xl bg-emerald-950/20 border border-emerald-500/20"
+                      />
                     </div>
                   </div>
 
