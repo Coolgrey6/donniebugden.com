@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import MathBlock from './MathBlock';
 import { 
   FileText, 
@@ -11,6 +11,7 @@ import {
   Atom,
   Orbit,
   Zap,
+  Hexagon,
   Table as TableIcon
 } from 'lucide-react';
 import { trackEvent } from '../utils/analytics';
@@ -19,9 +20,15 @@ import {
   ExactArithmeticCertificateSection,
 } from '../content/theoryIExactArithmetic';
 
-export default function ResearchLibrary() {
-  // Top-level paper selection: 'odt' (This Paper: Anti-Gravity/ODT), 'hypercomplex' (The Other Paper: Quasicrystals), or 'all' (Dual Archive)
-  const [activePaper, setActivePaper] = useState('odt'); 
+const PDF_THEORY_III = '/Tripartite_Architecture_Theory3_E8_Bugden_with_Verification.pdf';
+
+export default function ResearchLibrary({ activeTheory = 'hypercomplex' }) {
+  // Top-level paper selection: 'odt', 'hypercomplex', 'folding', or 'all'
+  const [activePaper, setActivePaper] = useState('odt');
+
+  useEffect(() => {
+    if (activeTheory === 'folding') setActivePaper('folding');
+  }, [activeTheory]); 
   
   // Sub-tabs for Paper II (This Paper)
   const [odtSubTab, setOdtSubTab] = useState('manuscript'); // 'manuscript' or 'atlas'
@@ -32,6 +39,7 @@ export default function ResearchLibrary() {
   // BibTeX copy states
   const [copiedBib1, setCopiedBib1] = useState(false);
   const [copiedBib2, setCopiedBib2] = useState(false);
+  const [copiedBib3, setCopiedBib3] = useState(false);
 
   // BibTeX for Paper I (The Other Paper)
   const bibtexPaper1 = `@article{bugden2026hypercomplex,
@@ -64,11 +72,25 @@ export default function ResearchLibrary() {
     setTimeout(() => setCopiedBib1(false), 2000);
   };
 
+  const bibtexPaper3 = `@article{bugden2026tripartite,
+  title={Self-Organizing Topological Manifolds and Dynamic Parity Lattice Folding on E8},
+  author={Bugden, Donald M.},
+  year={2026},
+  note={Tripartite architecture with computational verification. The bridge from discrete E8 geometry to observable spacetime.}
+}`;
+
   const copyBibtex2 = () => {
     navigator.clipboard.writeText(bibtexPaper2);
     setCopiedBib2(true);
     trackEvent('copy_bibtex', { paper: 'odt_anti_gravity' });
     setTimeout(() => setCopiedBib2(false), 2000);
+  };
+
+  const copyBibtex3 = () => {
+    navigator.clipboard.writeText(bibtexPaper3);
+    setCopiedBib3(true);
+    trackEvent('copy_bibtex', { paper: 'tripartite_lattice_folding' });
+    setTimeout(() => setCopiedBib3(false), 2000);
   };
 
   const handleSelectPaper = (paperId) => {
@@ -92,7 +114,22 @@ export default function ResearchLibrary() {
         </p>
 
         {/* Primary Paper Selection - Section Breakdown */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-2 p-1.5 bg-slate-950/90 rounded-2xl border border-slate-800 text-xs font-mono max-w-3xl">
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-2 p-1.5 bg-slate-950/90 rounded-2xl border border-slate-800 text-xs font-mono max-w-5xl">
+          <button
+            onClick={() => handleSelectPaper('folding')}
+            className={`px-4 py-2.5 rounded-xl transition-all flex items-center gap-2 ${
+              activePaper === 'folding'
+                ? 'bg-emerald-950 text-emerald-300 border border-emerald-600/60 shadow-[0_0_15px_rgba(16,185,129,0.2)] font-bold'
+                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/60'
+            }`}
+          >
+            <Hexagon className="w-4 h-4 text-emerald-400" />
+            <span>Paper III: Lattice Folding on E8</span>
+            <span className="px-1.5 py-0.5 text-[10px] rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+              New
+            </span>
+          </button>
+
           <button
             onClick={() => handleSelectPaper('odt')}
             className={`px-4 py-2.5 rounded-xl transition-all flex items-center gap-2 ${
@@ -103,9 +140,6 @@ export default function ResearchLibrary() {
           >
             <Orbit className="w-4 h-4 text-amber-400" />
             <span>Paper II: Metric Distortion &amp; Anti-Gravity (ODT &amp; E8)</span>
-            <span className="px-1.5 py-0.5 text-[10px] rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">
-              New
-            </span>
           </button>
 
           <button
@@ -129,7 +163,7 @@ export default function ResearchLibrary() {
             }`}
           >
             <Layers className="w-3.5 h-3.5" />
-            <span>Dual Archive</span>
+            <span>Full Archive</span>
           </button>
         </div>
       </div>
@@ -691,6 +725,85 @@ export default function ResearchLibrary() {
                 </div>
               </div>
             )}
+          </div>
+        )}
+
+        {(activePaper === 'folding' || activePaper === 'all') && (
+          <div id="paper-folding" className="space-y-6">
+            <div className="flex items-center justify-between gap-4 flex-wrap pb-3 border-b border-emerald-900/40">
+              <div className="flex items-center gap-2.5">
+                <span className="px-2.5 py-1 rounded-md bg-emerald-950/90 text-emerald-400 border border-emerald-800 text-xs font-mono font-bold">
+                  SECTION: THE BRIDGE
+                </span>
+                <span className="text-xs font-mono text-slate-400">
+                  Tripartite architecture · Engine / Core / Bridge
+                </span>
+              </div>
+            </div>
+
+            <div className="glass-panel p-6 sm:p-10 rounded-2xl border border-emerald-900/40 shadow-2xl space-y-8 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
+
+              <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6 pb-6 border-b border-slate-800/80">
+                <div className="space-y-2">
+                  <div className="flex flex-wrap items-center gap-2 text-xs font-mono">
+                    <span className="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800">
+                      Architectural Paper • With Computational Verification
+                    </span>
+                    <span className="text-slate-500">Open research program</span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-100 tracking-tight leading-snug">
+                    Paper III: Tripartite Architecture &amp; Lattice Folding on E₈
+                  </h3>
+                  <p className="text-sm text-slate-400 leading-relaxed max-w-3xl">
+                    Formalization of the three-tier stack (Engine / Core / Bridge), cascading flow, and the interlocking of <MathBlock math="\pi_x" /> with <MathBlock math="F_{\mathrm{feedback}}" />. Includes verification for root generation, the ODT clock, deficit and twist magnitudes, and the parity proxy.
+                  </p>
+                  <div className="pt-1 text-sm font-mono text-slate-400 flex flex-wrap items-center gap-4">
+                    <span><strong className="text-slate-200">Donald M. Bugden</strong></span>
+                    <a href="mailto:donnie.bugden@gmail.com" className="text-emerald-400 hover:underline">
+                      donnie.bugden@gmail.com
+                    </a>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 shrink-0">
+                  <a
+                    href={PDF_THEORY_III}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-5 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs font-mono transition-all flex items-center gap-2 shadow-[0_0_20px_rgba(16,185,129,0.35)]"
+                  >
+                    <Download className="w-4 h-4" />
+                    Download PDF
+                  </a>
+                  <button
+                    onClick={copyBibtex3}
+                    className="p-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 text-xs font-mono transition flex items-center gap-1.5"
+                    title="Copy BibTeX Citation"
+                  >
+                    {copiedBib3 ? <Check className="w-4 h-4 text-emerald-400" /> : <Quote className="w-4 h-4" />}
+                  </button>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="p-4 rounded-xl bg-slate-900/50 border border-slate-800 text-xs font-mono text-slate-300">
+                  <span className="text-cyan-400 font-bold block mb-1">Engine · Theory I</span>
+                  Hypercomplex dynamical parity on E₈. 120:120 chiral partition of the 240 roots.
+                </div>
+                <div className="p-4 rounded-xl bg-slate-900/50 border border-slate-800 text-xs font-mono text-slate-300">
+                  <span className="text-amber-400 font-bold block mb-1">Clock · Theory II</span>
+                  Oscillating dimensional trajectories. <MathBlock math="D(n)" /> and feedback across DT = 8 intervals.
+                </div>
+                <div className="p-4 rounded-xl bg-slate-900/50 border border-slate-800 text-xs font-mono text-slate-300">
+                  <span className="text-emerald-400 font-bold block mb-1">Bridge · Theory III</span>
+                  Folding operator <MathBlock math="\pi_x" /> writes Set C Footprints onto <MathBlock math="M_{\mathrm{phys}}" />.
+                </div>
+              </div>
+
+              <p className="text-xs font-mono text-slate-500 leading-relaxed">
+                The same library still carries Hypercomplex Dynamical Parity on E₈ (Theory I), Oscillating Dimensional Trajectories on E₈ Lattices (Theory II), and the Visual Companion Mathematical Proof Atlas.
+              </p>
+            </div>
           </div>
         )}
       </div>

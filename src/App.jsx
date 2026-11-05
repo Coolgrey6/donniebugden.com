@@ -21,6 +21,9 @@ import MathematicalFormalismODT from './components/MathematicalFormalismODT';
 import VisualizersSectionODT from './components/VisualizersSectionODT';
 import ProtocolsDashboardODT from './components/ProtocolsDashboardODT';
 
+// Theory III: Lattice folding bridge between parity (I) and ODT (II)
+import TheoryIII from './components/TheoryIII';
+
 import { trackTheoryView, trackEvent } from './utils/analytics';
 
 export default function App() {
@@ -35,6 +38,18 @@ export default function App() {
     const hash = window.location.hash.toLowerCase();
     const search = window.location.search.toLowerCase();
 
+    if (
+      path.includes('lattice') ||
+      path.includes('folding') ||
+      path.includes('theory-iii') ||
+      path.includes('theory3') ||
+      hash.includes('theory-iii') ||
+      hash.includes('folding') ||
+      search.includes('folding') ||
+      search.includes('theory-iii')
+    ) {
+      return 'folding';
+    }
     if (
       path.includes('anti-gravity') || 
       path.includes('odt') || 
@@ -70,7 +85,11 @@ export default function App() {
 
   const handleSelectTheory = (theory) => {
     setActiveTheory(theory);
-    const newPath = theory === 'odt' ? '/anti-gravity' : '/';
+    const newPath = theory === 'odt'
+      ? '/anti-gravity'
+      : theory === 'folding'
+        ? '/lattice-folding'
+        : '/';
     if (window.location.pathname !== newPath) {
       window.history.pushState(null, '', newPath);
     }
@@ -110,6 +129,7 @@ export default function App() {
               onOpenTerminal={handleOpenTerminal}
               onOpenContact={handleOpenContact}
               onSwitchToTheory2={() => handleSelectTheory('odt')}
+              onSwitchToTheory3={() => handleSelectTheory('folding')}
             />
 
             {/* Section 2: The Theory & Executive Summary */}
@@ -126,7 +146,7 @@ export default function App() {
               <ProtocolsDashboard />
             </section>
           </div>
-        ) : (
+        ) : activeTheory === 'odt' ? (
           /* ========================================================= */
           /* THEORETICAL FRAMEWORK II: ODT & GRAVITATIONAL MODIFICATION */
           /* (New Paper, 3D Simulation, Theory & Defense Use Cases)    */
@@ -137,6 +157,7 @@ export default function App() {
               onOpenTerminal={handleOpenTerminal}
               onOpenContact={handleOpenContact}
               onSwitchToTheory1={() => handleSelectTheory('hypercomplex')}
+              onSwitchToTheory3={() => handleSelectTheory('folding')}
             />
 
             {/* Section 2: The Theory & Executive Summary (ODT) */}
@@ -151,6 +172,17 @@ export default function App() {
             {/* Section 5: Defense Use Cases & Experimental Verification Suite */}
             <ProtocolsDashboardODT />
           </div>
+        ) : (
+          /* ========================================================= */
+          /* THEORETICAL FRAMEWORK III: LATTICE FOLDING BRIDGE          */
+          /* Set C footprints of parity-equipped E8 on M_phys           */
+          /* ========================================================= */
+          <div key="framework-folding" className="space-y-0 transition-opacity duration-300">
+            <TheoryIII
+              onSwitchToTheory1={() => handleSelectTheory('hypercomplex')}
+              onSwitchToTheory2={() => handleSelectTheory('odt')}
+            />
+          </div>
         )}
 
         {/* Section 6: Strategic Consulting & Defense/Advisory Matrix (Shared) */}
@@ -159,7 +191,7 @@ export default function App() {
         />
 
         {/* Section 7: Research Library & Visual Proof Atlas Reader (Dual Papers) */}
-        <ResearchLibrary />
+        <ResearchLibrary activeTheory={activeTheory} />
       </main>
 
       {/* Footer */}

@@ -13,24 +13,23 @@ import {
   Lock
 } from 'lucide-react';
 
-export default function Hero({ onOpenTerminal, onOpenContact, onSwitchToTheory2 }) {
+export default function Hero({ onOpenTerminal, onOpenContact, onSwitchToTheory3 }) {
   return (
-    <section className="relative pt-28 pb-20 px-4 max-w-7xl mx-auto flex flex-col items-center text-center tech-radial-glow overflow-hidden">
+    <section className="relative pt-28 md:pt-40 pb-20 px-4 max-w-7xl mx-auto flex flex-col items-center text-center tech-radial-glow overflow-hidden">
       {/* Background Decorative Technical Grids & Circles */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] border border-cyan-500/10 rounded-full pointer-events-none -z-10 animate-spin-slow"></div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1100px] h-[1100px] border border-slate-800/40 rounded-full pointer-events-none -z-10"></div>
 
-      {/* Announcement Banner for Theory II: Oscillating Dimensional Trajectories & Anti-Gravity */}
-      {onSwitchToTheory2 && (
+      {onSwitchToTheory3 && (
         <div className="mb-6">
           <button
-            onClick={onSwitchToTheory2}
-            className="group inline-flex items-center gap-2.5 px-4 py-2 rounded-xl bg-amber-950/70 hover:bg-amber-900/80 border border-amber-600/50 hover:border-amber-500 text-xs font-mono text-amber-300 transition-all shadow-[0_0_20px_rgba(245,158,11,0.2)]"
+            onClick={onSwitchToTheory3}
+            className="group inline-flex items-center gap-2.5 px-4 py-2 rounded-xl bg-emerald-950/70 hover:bg-emerald-900/80 border border-emerald-600/50 hover:border-emerald-500 text-xs font-mono text-emerald-300 transition-all shadow-[0_0_20px_rgba(16,185,129,0.2)]"
           >
-            <span className="px-1.5 py-0.5 rounded bg-amber-500/20 text-[10px] font-bold text-amber-300 border border-amber-500/30 uppercase">
-              New Breakthrough
+            <span className="px-1.5 py-0.5 rounded bg-emerald-500/20 text-[10px] font-bold text-emerald-200 border border-emerald-500/30 uppercase">
+              New
             </span>
-            <span>Theory II: Oscillating Dimensional Trajectories &amp; Anti-Gravity</span>
+            <span>Theory III: Lattice Folding &amp; Set C Footprints</span>
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>

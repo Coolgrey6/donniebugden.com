@@ -21,14 +21,17 @@ export function trackEvent(eventName, eventParams = {}) {
 
 /**
  * Track specific theory tab switch
- * @param {'odt' | 'hypercomplex'} theoryId 
+ * @param {'odt' | 'hypercomplex' | 'folding'} theoryId 
  */
 export function trackTheoryView(theoryId) {
+  const theoryNames = {
+    odt: 'Theory II: Oscillating Dimensional Trajectories',
+    folding: 'Theory III: Lattice Folding & Set C Footprints',
+    hypercomplex: 'Theory I: Quasicrystalline Frustration & Julia Boundaries',
+  };
   trackEvent('theory_switch', {
     theory_id: theoryId,
-    theory_name: theoryId === 'odt' 
-      ? 'Theory II: Oscillating Dimensional Trajectories' 
-      : 'Theory I: Quasicrystalline Frustration & Julia Boundaries',
+    theory_name: theoryNames[theoryId] || theoryNames.hypercomplex,
     timestamp: new Date().toISOString()
   });
 }

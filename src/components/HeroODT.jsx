@@ -13,9 +13,9 @@ import {
   Rotate3d
 } from 'lucide-react';
 
-export default function HeroODT({ onOpenTerminal, onOpenContact, onSwitchToTheory1 }) {
+export default function HeroODT({ onOpenTerminal, onOpenContact, onSwitchToTheory1, onSwitchToTheory3 }) {
   return (
-    <section className="relative min-h-screen pt-32 pb-20 px-4 flex flex-col justify-center items-center text-center overflow-hidden">
+    <section className="relative min-h-screen pt-32 md:pt-44 pb-20 px-4 flex flex-col justify-center items-center text-center overflow-hidden">
       {/* Background Glows */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gradient-to-tr from-amber-500/15 via-cyan-500/10 to-emerald-500/15 blur-[130px] -z-10 pointer-events-none rounded-full" />
       
@@ -69,7 +69,21 @@ export default function HeroODT({ onOpenTerminal, onOpenContact, onSwitchToTheor
         </div>
 
         {/* Link / Switch to Theory 1 */}
-        <div className="pt-2">
+        <div className="pt-2 flex flex-col items-center gap-2">
+          {onSwitchToTheory3 && (
+            <button
+              onClick={onSwitchToTheory3}
+              className="inline-flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-emerald-300 transition-colors"
+            >
+              <span className="px-1.5 py-0.5 rounded bg-emerald-500/20 text-[10px] font-bold text-emerald-300 border border-emerald-500/30 uppercase">
+                New
+              </span>
+              <span className="text-emerald-400 font-bold underline underline-offset-4 flex items-center gap-1">
+                Theory III: Lattice Folding &amp; Set C Footprints
+                <ArrowRight className="w-3.5 h-3.5" />
+              </span>
+            </button>
+          )}
           <button
             onClick={onSwitchToTheory1}
             className="inline-flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-cyan-300 transition-colors"

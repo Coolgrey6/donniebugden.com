@@ -40,7 +40,7 @@ export default function Navbar({
         ? 'bg-[#090D16]/95 backdrop-blur-md border-b border-slate-800 shadow-xl py-2.5' 
         : 'bg-transparent py-4'
     }`}>
-      <div className="max-w-7xl mx-auto px-4 flex items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-4 flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
         {/* Brand / Logo */}
         <a href="#" className="flex items-center gap-3 group shrink-0">
           <div className="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center p-1.5 group-hover:border-cyan-500/50 transition-colors shadow-md">
@@ -60,32 +60,48 @@ export default function Navbar({
         </a>
 
         {/* Central Framework Switcher (Desktop & Tablet) */}
-        <div className="hidden md:flex items-center gap-1 p-1 bg-slate-950/90 rounded-xl border border-slate-800 text-xs font-mono">
+        <div className="hidden md:flex order-last w-full items-center justify-center gap-1 p-1 bg-slate-950/90 rounded-xl border border-slate-800 text-xs font-mono">
           <button
             onClick={() => onSelectTheory && onSelectTheory('hypercomplex')}
-            className={`px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 ${
+            className={`px-2.5 py-1.5 rounded-lg transition-all flex items-center gap-1.5 whitespace-nowrap ${
               activeTheory === 'hypercomplex'
                 ? 'bg-cyan-950 text-cyan-300 border border-cyan-600/60 shadow-[0_0_12px_rgba(6,182,212,0.25)] font-bold'
                 : 'text-slate-400 hover:text-slate-200'
             }`}
             title="Theory I: Hypercomplex Dynamical Parity on E8"
           >
-            <Atom className="w-3.5 h-3.5 text-cyan-400" />
-            <span>Theory I: Quasicrystal Parity</span>
+            <Atom className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+            <span className="lg:hidden">Theory I</span>
+            <span className="hidden lg:inline">Theory I: Quasicrystal Parity</span>
           </button>
 
           <button
             onClick={() => onSelectTheory && onSelectTheory('odt')}
-            className={`px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 ${
+            className={`px-2.5 py-1.5 rounded-lg transition-all flex items-center gap-1.5 whitespace-nowrap ${
               activeTheory === 'odt'
                 ? 'bg-amber-950 text-amber-300 border border-amber-600/60 shadow-[0_0_12px_rgba(245,158,11,0.25)] font-bold'
                 : 'text-slate-400 hover:text-slate-200'
             }`}
             title="Theory II: Oscillating Dimensional Trajectories & Gravitational Modification"
           >
-            <Orbit className="w-3.5 h-3.5 text-amber-400" />
-            <span>Theory II: Anti-Gravity &amp; ODT</span>
-            <span className="px-1 py-0.2 text-[9px] rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">
+            <Orbit className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+            <span className="lg:hidden">Theory II</span>
+            <span className="hidden lg:inline">Theory II: Anti-Gravity &amp; ODT</span>
+          </button>
+
+          <button
+            onClick={() => onSelectTheory && onSelectTheory('folding')}
+            className={`px-2.5 py-1.5 rounded-lg transition-all flex items-center gap-1.5 whitespace-nowrap ${
+              activeTheory === 'folding'
+                ? 'bg-emerald-950 text-emerald-300 border border-emerald-600/60 shadow-[0_0_12px_rgba(16,185,129,0.25)] font-bold'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+            title="Theory III: Lattice Folding & Set C Footprints"
+          >
+            <Layers className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+            <span className="lg:hidden">Theory III</span>
+            <span className="hidden lg:inline">Theory III: Lattice Folding &amp; Set C Footprints</span>
+            <span className="px-1 py-0.2 text-[9px] rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
               New
             </span>
           </button>
@@ -93,7 +109,26 @@ export default function Navbar({
 
         {/* Dynamic Desktop Navigation Links */}
         <nav className="hidden xl:flex items-center gap-5 text-xs font-mono text-slate-300 shrink-0">
-          {activeTheory === 'hypercomplex' ? (
+          {activeTheory === 'folding' ? (
+            <>
+              <a href="#theory-iii" className="hover:text-emerald-400 transition-colors">
+                Bridge
+              </a>
+              <a href="#mechanism-iii" className="hover:text-emerald-400 transition-colors flex items-center gap-1">
+                <Layers className="w-3.5 h-3.5 text-emerald-400" />
+                Folding
+              </a>
+              <a href="#verification-iii" className="hover:text-emerald-400 transition-colors">
+                Verification
+              </a>
+              <a href="#consulting" className="hover:text-emerald-400 transition-colors">
+                Advisory
+              </a>
+              <a href="#research" className="hover:text-emerald-400 transition-colors">
+                Research Library
+              </a>
+            </>
+          ) : activeTheory === 'hypercomplex' ? (
             <>
               <a href="#theory" className="hover:text-cyan-400 transition-colors">
                 Theory
@@ -188,7 +223,7 @@ export default function Navbar({
             <span className="text-[10px] uppercase text-slate-500 tracking-wider font-bold block">
               Active Theoretical Framework
             </span>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-3 gap-2">
               <button
                 onClick={() => {
                   onSelectTheory && onSelectTheory('hypercomplex');
@@ -219,12 +254,70 @@ export default function Navbar({
                 <div>Theory II</div>
                 <div className="text-[10px] text-slate-500">Anti-Gravity &amp; ODT</div>
               </button>
+              <button
+                onClick={() => {
+                  onSelectTheory && onSelectTheory('folding');
+                  setMobileMenuOpen(false);
+                }}
+                className={`p-2.5 rounded-xl border text-left text-xs transition-all ${
+                  activeTheory === 'folding'
+                    ? 'bg-emerald-950 text-emerald-300 border-emerald-600 font-bold'
+                    : 'bg-slate-900 text-slate-400 border-slate-800'
+                }`}
+              >
+                <Layers className="w-4 h-4 mb-1 text-emerald-400" />
+                <div className="flex items-center gap-1">
+                  Theory III
+                  <span className="px-1 text-[9px] rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                    New
+                  </span>
+                </div>
+                <div className="text-[10px] text-slate-500">Lattice Folding</div>
+              </button>
             </div>
           </div>
 
           {/* Links */}
           <div className="space-y-2 pt-2 border-t border-slate-800">
-            {activeTheory === 'hypercomplex' ? (
+            {activeTheory === 'folding' ? (
+              <>
+                <a
+                  href="#theory-iii"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block text-slate-300 hover:text-emerald-400 py-1"
+                >
+                  The Bridge
+                </a>
+                <a
+                  href="#mechanism-iii"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block text-slate-300 hover:text-emerald-400 py-1"
+                >
+                  Lattice Folding Operator
+                </a>
+                <a
+                  href="#verification-iii"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block text-slate-300 hover:text-emerald-400 py-1"
+                >
+                  Computational Verification
+                </a>
+                <a
+                  href="#consulting"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block text-slate-300 hover:text-emerald-400 py-1"
+                >
+                  Advisory &amp; Defense Practice
+                </a>
+                <a
+                  href="#research"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block text-slate-300 hover:text-emerald-400 py-1"
+                >
+                  Research Papers &amp; Atlas
+                </a>
+              </>
+            ) : activeTheory === 'hypercomplex' ? (
               <>
                 <a
                   href="#theory"
