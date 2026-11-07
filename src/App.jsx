@@ -285,6 +285,9 @@ export default function App() {
         onOpenTerminal={handleOpenTerminal}
         onOpenContact={handleOpenContact}
         onOpenDedication={handleOpenDedication}
+        onOpenLearn={handleOpenLearn}
+        onOpenBook={handleOpenBook}
+        onSelectTheory={handleSelectTheory}
       />
 
       {/* Interactive Terminal Modal */}

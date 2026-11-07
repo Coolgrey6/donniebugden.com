@@ -1,7 +1,7 @@
 import React from 'react';
 import { ShieldCheck, Mail, BookOpen, Layers, Terminal, Sparkles, ExternalLink } from 'lucide-react';
 
-export default function Footer({ onOpenTerminal, onOpenContact, onOpenDedication }) {
+export default function Footer({ onOpenTerminal, onOpenContact, onOpenDedication, onOpenLearn, onOpenBook, onSelectTheory }) {
   return (
     <footer className="border-t border-slate-800/90 bg-[#070A11] pt-16 pb-12 px-4 text-xs font-mono text-slate-400">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
@@ -60,11 +60,12 @@ export default function Footer({ onOpenTerminal, onOpenContact, onOpenDedication
                 About Donnie
               </a>
             </li>
-            <li>
-              <button onClick={onOpenDedication} className="hover:text-rose-300 transition text-left">
-                Dedication
-              </button>
-            </li>
+            <li><a href="/" onClick={(event) => { event.preventDefault(); onSelectTheory?.('hypercomplex'); }} className="hover:text-cyan-400 transition">Theory I</a></li>
+            <li><a href="/anti-gravity" onClick={(event) => { event.preventDefault(); onSelectTheory?.('odt'); }} className="hover:text-amber-400 transition">Theory II</a></li>
+            <li><a href="/lattice-folding" onClick={(event) => { event.preventDefault(); onSelectTheory?.('folding'); }} className="hover:text-emerald-400 transition">Theory III</a></li>
+            <li><a href="/learn" onClick={(event) => { event.preventDefault(); onOpenLearn?.(); }} className="hover:text-sky-300 transition">STEM Learning</a></li>
+            <li><a href="/dedication" onClick={(event) => { event.preventDefault(); onOpenDedication?.(); }} className="hover:text-rose-300 transition">Dedication</a></li>
+            <li><a href="/book" onClick={(event) => { event.preventDefault(); onOpenBook?.(); }} className="hover:text-rose-300 transition">The Unclosed Turn</a></li>
           </ul>
         </div>
 
