@@ -1,7 +1,7 @@
 import React from 'react';
 import { ShieldCheck, Mail, BookOpen, Layers, Terminal, Sparkles, ExternalLink } from 'lucide-react';
 
-export default function Footer({ onOpenTerminal, onOpenContact }) {
+export default function Footer({ onOpenTerminal, onOpenContact, onOpenDedication }) {
   return (
     <footer className="border-t border-slate-800/90 bg-[#070A11] pt-16 pb-12 px-4 text-xs font-mono text-slate-400">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
@@ -47,6 +47,24 @@ export default function Footer({ onOpenTerminal, onOpenContact }) {
             <li><a href="#visualizers" className="hover:text-cyan-400 transition">Quaternionic Julia Explorer</a></li>
             <li><a href="#visualizers" className="hover:text-cyan-400 transition">Tetrahedral Frustration Viewer</a></li>
             <li><a href="#protocols" className="hover:text-cyan-400 transition">Section 6 Protocols Benchmark</a></li>
+            <li>
+              <a
+                href="/#about"
+                className="hover:text-cyan-400 transition"
+                onClick={(event) => {
+                  if (window.location.pathname.toLowerCase().includes('dedication')) return;
+                  event.preventDefault();
+                  document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                About Donnie
+              </a>
+            </li>
+            <li>
+              <button onClick={onOpenDedication} className="hover:text-rose-300 transition text-left">
+                Dedication
+              </button>
+            </li>
           </ul>
         </div>
 

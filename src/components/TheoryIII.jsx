@@ -1,5 +1,7 @@
 import React from 'react';
 import MathBlock from './MathBlock';
+import TheoryIIIOutsiders from './TheoryIIIOutsiders';
+import LatticeFoldLaboratory from './visualizations/LatticeFoldLaboratory';
 import {
   Layers,
   ArrowRight,
@@ -44,10 +46,17 @@ export default function TheoryIII({ onSwitchToTheory1, onSwitchToTheory2 }) {
 
         <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
           <a
-            href="#mechanism-iii"
+            href="#simulation-iii"
             className="px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm font-mono transition-all shadow-[0_0_25px_rgba(16,185,129,0.35)] flex items-center gap-2"
           >
             <GitMerge className="w-4 h-4" />
+            Open Folding Laboratory
+          </a>
+          <a
+            href="#mechanism-iii"
+            className="px-6 py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-slate-700/80 font-semibold text-sm font-mono transition-all flex items-center gap-2"
+          >
+            <GitMerge className="w-4 h-4 text-emerald-400" />
             Folding Operator πₓ
           </a>
           <a
@@ -225,6 +234,10 @@ export default function TheoryIII({ onSwitchToTheory1, onSwitchToTheory2 }) {
           </div>
         </div>
       </section>
+
+      <LatticeFoldLaboratory />
+
+      <TheoryIIIOutsiders />
 
       <section id="verification-iii" className="pb-20 px-4 max-w-7xl mx-auto scroll-mt-40">
         <div className="glass-panel p-6 sm:p-10 rounded-2xl border border-emerald-900/50">

@@ -1,0 +1,71 @@
+{
+  "voice": "Heart",
+  "engine": "Kokoro",
+  "tracks": [
+    {
+      "id": "opening",
+      "title": "Opening",
+      "src": "/audio/unclosed-turn/00-opening.m4a"
+    },
+    {
+      "id": "ch-the-people-of-the-offices",
+      "title": "The people of the offices",
+      "src": "/audio/unclosed-turn/01-ch-the-people-of-the-offices.m4a"
+    },
+    {
+      "id": "ch-i-a-mark-on-the-grid",
+      "title": "I. A mark on the grid",
+      "src": "/audio/unclosed-turn/02-ch-i-a-mark-on-the-grid.m4a"
+    },
+    {
+      "id": "ch-ii-the-golden-door",
+      "title": "II. The golden door",
+      "src": "/audio/unclosed-turn/03-ch-ii-the-golden-door.m4a"
+    },
+    {
+      "id": "ch-iii-the-turn-that-is-not-a-trade",
+      "title": "III. The turn that is not a trade",
+      "src": "/audio/unclosed-turn/04-ch-iii-the-turn-that-is-not-a-trade.m4a"
+    },
+    {
+      "id": "ch-iv-the-other-hundred-and-twenty",
+      "title": "IV. The other hundred and twenty",
+      "src": "/audio/unclosed-turn/05-ch-iv-the-other-hundred-and-twenty.m4a"
+    },
+    {
+      "id": "ch-v-the-peace-that-comes-too-soon",
+      "title": "V. The peace that comes too soon",
+      "src": "/audio/unclosed-turn/06-ch-v-the-peace-that-comes-too-soon.m4a"
+    },
+    {
+      "id": "ch-vi-the-fourteen-steps",
+      "title": "VI. The fourteen steps",
+      "src": "/audio/unclosed-turn/07-ch-vi-the-fourteen-steps.m4a"
+    },
+    {
+      "id": "ch-vii-where-everything-is-present",
+      "title": "VII. Where everything is present",
+      "src": "/audio/unclosed-turn/08-ch-vii-where-everything-is-present.m4a"
+    },
+    {
+      "id": "ch-viii-the-corridor-of-the-relation",
+      "title": "VIII. The corridor of the relation",
+      "src": "/audio/unclosed-turn/09-ch-viii-the-corridor-of-the-relation.m4a"
+    },
+    {
+      "id": "ch-ix-down-which-is-half-the-promise",
+      "title": "IX. Down, which is half the promise",
+      "src": "/audio/unclosed-turn/10-ch-ix-down-which-is-half-the-promise.m4a"
+    },
+    {
+      "id": "ch-x-what-the-town-holds",
+      "title": "X. What the town holds",
+      "src": "/audio/unclosed-turn/11-ch-x-what-the-town-holds.m4a"
+    },
+    {
+      "id": "ch-xi-the-ground-which-is-for-jumping",
+      "title": "XI. The ground, which is for jumping",
+      "src": "/audio/unclosed-turn/12-ch-xi-the-ground-which-is-for-jumping.m4a"
+    }
+  ]
+}

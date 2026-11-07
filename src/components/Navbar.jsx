@@ -14,14 +14,21 @@ import {
   Orbit,
   Atom,
   Zap,
-  Activity
+  Activity,
+  GraduationCap
 } from 'lucide-react';
 
 export default function Navbar({ 
   onOpenTerminal, 
   onOpenContact, 
   activeTheory = 'hypercomplex', 
-  onSelectTheory 
+  onSelectTheory,
+  dedicationActive = false,
+  onOpenDedication,
+  learnActive = false,
+  onOpenLearn,
+  bookActive = false,
+  onOpenBook
 }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -64,7 +71,7 @@ export default function Navbar({
           <button
             onClick={() => onSelectTheory && onSelectTheory('hypercomplex')}
             className={`px-2.5 py-1.5 rounded-lg transition-all flex items-center gap-1.5 whitespace-nowrap ${
-              activeTheory === 'hypercomplex'
+              !learnActive && !bookActive && activeTheory === 'hypercomplex'
                 ? 'bg-cyan-950 text-cyan-300 border border-cyan-600/60 shadow-[0_0_12px_rgba(6,182,212,0.25)] font-bold'
                 : 'text-slate-400 hover:text-slate-200'
             }`}
@@ -78,7 +85,7 @@ export default function Navbar({
           <button
             onClick={() => onSelectTheory && onSelectTheory('odt')}
             className={`px-2.5 py-1.5 rounded-lg transition-all flex items-center gap-1.5 whitespace-nowrap ${
-              activeTheory === 'odt'
+              !learnActive && !bookActive && activeTheory === 'odt'
                 ? 'bg-amber-950 text-amber-300 border border-amber-600/60 shadow-[0_0_12px_rgba(245,158,11,0.25)] font-bold'
                 : 'text-slate-400 hover:text-slate-200'
             }`}
@@ -92,7 +99,7 @@ export default function Navbar({
           <button
             onClick={() => onSelectTheory && onSelectTheory('folding')}
             className={`px-2.5 py-1.5 rounded-lg transition-all flex items-center gap-1.5 whitespace-nowrap ${
-              activeTheory === 'folding'
+              !learnActive && !bookActive && activeTheory === 'folding'
                 ? 'bg-emerald-950 text-emerald-300 border border-emerald-600/60 shadow-[0_0_12px_rgba(16,185,129,0.25)] font-bold'
                 : 'text-slate-400 hover:text-slate-200'
             }`}
@@ -105,14 +112,54 @@ export default function Navbar({
               New
             </span>
           </button>
+
+          <button
+            onClick={() => onOpenLearn && onOpenLearn()}
+            className={`px-2.5 py-1.5 rounded-lg transition-all flex items-center gap-1.5 whitespace-nowrap ${
+              learnActive
+                ? 'bg-sky-950 text-sky-200 border border-sky-600/60 shadow-[0_0_12px_rgba(56,189,248,0.25)] font-bold'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+            title="STEM Learning: high school through research, for all three theories"
+          >
+            <GraduationCap className="w-3.5 h-3.5 text-sky-300 shrink-0" />
+            <span className="lg:hidden">STEM</span>
+            <span className="hidden lg:inline">STEM Learning</span>
+          </button>
         </div>
 
         {/* Dynamic Desktop Navigation Links */}
         <nav className="hidden xl:flex items-center gap-5 text-xs font-mono text-slate-300 shrink-0">
-          {activeTheory === 'folding' ? (
+          {dedicationActive ? (
+            <>
+              <a href="#ded-foundations" className="hover:text-rose-300 transition-colors">Foundations</a>
+              <a href="#ded-metrics" className="hover:text-rose-300 transition-colors">Metrics</a>
+              <a href="#ded-trajectories" className="hover:text-rose-300 transition-colors">Trajectories</a>
+              <a href="#ded-stability" className="hover:text-rose-300 transition-colors">Stability</a>
+            </>
+          ) : bookActive ? (
+            <>
+              <a href="#ch-the-people-of-the-offices" className="hover:text-rose-300 transition-colors">Offices</a>
+              <a href="#ch-i-a-mark-on-the-grid" className="hover:text-rose-300 transition-colors">Begin</a>
+              <a href="#ch-viii-the-corridor-of-the-relation" className="hover:text-rose-300 transition-colors">The fold</a>
+            </>
+          ) : learnActive ? (
+            <>
+              <a href="#learn-path" className="hover:text-sky-300 transition-colors">Path</a>
+              <a href="#learn-school" className="hover:text-sky-300 transition-colors">High school</a>
+              <a href="#learn-college" className="hover:text-sky-300 transition-colors">College</a>
+              <a href="#learn-graduate" className="hover:text-sky-300 transition-colors">Graduate</a>
+              <a href="#learn-research" className="hover:text-sky-300 transition-colors">Research</a>
+              <a href="#learn-reference" className="hover:text-sky-300 transition-colors">Reference</a>
+            </>
+          ) : !learnActive && !bookActive && activeTheory === 'folding' ? (
             <>
               <a href="#theory-iii" className="hover:text-emerald-400 transition-colors">
                 Bridge
+              </a>
+              <a href="#simulation-iii" className="hover:text-emerald-400 transition-colors flex items-center gap-1">
+                <Rotate3d className="w-3.5 h-3.5 text-emerald-400" />
+                Laboratory
               </a>
               <a href="#mechanism-iii" className="hover:text-emerald-400 transition-colors flex items-center gap-1">
                 <Layers className="w-3.5 h-3.5 text-emerald-400" />
@@ -121,14 +168,20 @@ export default function Navbar({
               <a href="#verification-iii" className="hover:text-emerald-400 transition-colors">
                 Verification
               </a>
+              <a href="#dedications-iii" className="hover:text-rose-300 transition-colors">
+                Dedications
+              </a>
               <a href="#consulting" className="hover:text-emerald-400 transition-colors">
                 Advisory
               </a>
               <a href="#research" className="hover:text-emerald-400 transition-colors">
                 Research Library
               </a>
+              <a href="#about" className="hover:text-emerald-400 transition-colors">
+                About
+              </a>
             </>
-          ) : activeTheory === 'hypercomplex' ? (
+          ) : !learnActive && !bookActive && activeTheory === 'hypercomplex' ? (
             <>
               <a href="#theory" className="hover:text-cyan-400 transition-colors">
                 Theory
@@ -149,6 +202,9 @@ export default function Navbar({
               </a>
               <a href="#research" className="hover:text-cyan-400 transition-colors">
                 Research Library
+              </a>
+              <a href="#about" className="hover:text-cyan-400 transition-colors">
+                About
               </a>
             </>
           ) : (
@@ -173,12 +229,40 @@ export default function Navbar({
               <a href="#research" className="hover:text-amber-400 transition-colors">
                 Research Paper
               </a>
+              <a href="#about" className="hover:text-amber-400 transition-colors">
+                About
+              </a>
             </>
           )}
         </nav>
 
         {/* Action Buttons */}
         <div className="hidden sm:flex items-center gap-3 shrink-0">
+          <button
+            onClick={onOpenDedication}
+            className={`px-3 py-2.5 rounded-xl border text-xs font-mono transition flex items-center gap-1.5 shadow-sm ${
+              dedicationActive
+                ? 'bg-rose-950/80 border-rose-600/60 text-rose-200'
+                : 'bg-slate-900 hover:bg-slate-800 border-slate-800 text-slate-300 hover:text-rose-200'
+            }`}
+            title="Open the dedication page"
+          >
+            <BookOpen className="w-4 h-4 text-rose-300" />
+            <span className="hidden 2xl:inline">Dedication</span>
+          </button>
+          <button
+            onClick={onOpenBook}
+            className={`px-3 py-2.5 rounded-xl border text-xs font-mono transition flex items-center gap-1.5 shadow-sm ${
+              bookActive
+                ? 'bg-rose-950/80 border-rose-600/60 text-rose-200'
+                : 'bg-slate-900 hover:bg-slate-800 border-slate-800 text-slate-300 hover:text-rose-200'
+            }`}
+            title="Read The Unclosed Turn"
+          >
+            <BookOpen className="w-4 h-4 text-rose-200" />
+            <span className="hidden 2xl:inline">Book</span>
+          </button>
+
           <button
             onClick={onOpenTerminal}
             className="p-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-cyan-300 text-xs font-mono transition flex items-center gap-1.5 shadow-sm"
@@ -230,7 +314,7 @@ export default function Navbar({
                   setMobileMenuOpen(false);
                 }}
                 className={`p-2.5 rounded-xl border text-left text-xs transition-all ${
-                  activeTheory === 'hypercomplex'
+                  !learnActive && !bookActive && activeTheory === 'hypercomplex'
                     ? 'bg-cyan-950 text-cyan-300 border-cyan-600 font-bold'
                     : 'bg-slate-900 text-slate-400 border-slate-800'
                 }`}
@@ -245,7 +329,7 @@ export default function Navbar({
                   setMobileMenuOpen(false);
                 }}
                 className={`p-2.5 rounded-xl border text-left text-xs transition-all ${
-                  activeTheory === 'odt'
+                  !learnActive && !bookActive && activeTheory === 'odt'
                     ? 'bg-amber-950 text-amber-300 border-amber-600 font-bold'
                     : 'bg-slate-900 text-slate-400 border-slate-800'
                 }`}
@@ -260,7 +344,7 @@ export default function Navbar({
                   setMobileMenuOpen(false);
                 }}
                 className={`p-2.5 rounded-xl border text-left text-xs transition-all ${
-                  activeTheory === 'folding'
+                  !learnActive && !bookActive && activeTheory === 'folding'
                     ? 'bg-emerald-950 text-emerald-300 border-emerald-600 font-bold'
                     : 'bg-slate-900 text-slate-400 border-slate-800'
                 }`}
@@ -275,11 +359,98 @@ export default function Navbar({
                 <div className="text-[10px] text-slate-500">Lattice Folding</div>
               </button>
             </div>
+            <button
+              onClick={() => {
+                onOpenLearn && onOpenLearn();
+                setMobileMenuOpen(false);
+              }}
+              className={`w-full p-2.5 rounded-xl border text-left text-xs transition-all flex items-center gap-2 ${
+                learnActive
+                  ? 'bg-sky-950 text-sky-200 border-sky-600 font-bold'
+                  : 'bg-slate-900 text-slate-300 border-slate-800'
+              }`}
+            >
+              <GraduationCap className="w-4 h-4 text-sky-300" />
+              <span>
+                STEM Learning
+                <span className="block text-[10px] text-slate-500 font-normal">High school through research</span>
+              </span>
+            </button>
           </div>
 
           {/* Links */}
           <div className="space-y-2 pt-2 border-t border-slate-800">
-            {activeTheory === 'folding' ? (
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenDedication && onOpenDedication();
+              }}
+              className={`block w-full text-left py-1 ${
+                dedicationActive ? 'text-rose-300 font-bold' : 'text-slate-300 hover:text-rose-300'
+              }`}
+            >
+              Dedication
+            </button>
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenBook && onOpenBook();
+              }}
+              className={`block w-full text-left py-1 ${
+                bookActive ? 'text-rose-300 font-bold' : 'text-slate-300 hover:text-rose-300'
+              }`}
+            >
+              The Unclosed Turn
+            </button>
+            {dedicationActive ? (
+              <>
+                <a href="#ded-foundations" onClick={() => setMobileMenuOpen(false)} className="block text-slate-300 hover:text-rose-300 py-1">
+                  Part I · Foundations
+                </a>
+                <a href="#ded-metrics" onClick={() => setMobileMenuOpen(false)} className="block text-slate-300 hover:text-rose-300 py-1">
+                  Part II · Metrics
+                </a>
+                <a href="#ded-trajectories" onClick={() => setMobileMenuOpen(false)} className="block text-slate-300 hover:text-rose-300 py-1">
+                  Part III · Trajectories
+                </a>
+                <a href="#ded-stability" onClick={() => setMobileMenuOpen(false)} className="block text-slate-300 hover:text-rose-300 py-1">
+                  Part IV · Stability
+                </a>
+              </>
+            ) : bookActive ? (
+              <>
+                <a href="#ch-the-people-of-the-offices" onClick={() => setMobileMenuOpen(false)} className="block text-slate-300 hover:text-rose-300 py-1">
+                  Offices
+                </a>
+                <a href="#ch-i-a-mark-on-the-grid" onClick={() => setMobileMenuOpen(false)} className="block text-slate-300 hover:text-rose-300 py-1">
+                  Begin reading
+                </a>
+                <a href="#ch-viii-the-corridor-of-the-relation" onClick={() => setMobileMenuOpen(false)} className="block text-slate-300 hover:text-rose-300 py-1">
+                  The fold
+                </a>
+              </>
+            ) : learnActive ? (
+              <>
+                <a href="#learn-path" onClick={() => setMobileMenuOpen(false)} className="block text-slate-300 hover:text-sky-300 py-1">
+                  The path
+                </a>
+                <a href="#learn-school" onClick={() => setMobileMenuOpen(false)} className="block text-slate-300 hover:text-sky-300 py-1">
+                  High school
+                </a>
+                <a href="#learn-college" onClick={() => setMobileMenuOpen(false)} className="block text-slate-300 hover:text-sky-300 py-1">
+                  College
+                </a>
+                <a href="#learn-graduate" onClick={() => setMobileMenuOpen(false)} className="block text-slate-300 hover:text-sky-300 py-1">
+                  Graduate
+                </a>
+                <a href="#learn-research" onClick={() => setMobileMenuOpen(false)} className="block text-slate-300 hover:text-sky-300 py-1">
+                  Research
+                </a>
+                <a href="#learn-reference" onClick={() => setMobileMenuOpen(false)} className="block text-slate-300 hover:text-sky-300 py-1">
+                  Formula reference
+                </a>
+              </>
+            ) : !learnActive && !bookActive && activeTheory === 'folding' ? (
               <>
                 <a
                   href="#theory-iii"
@@ -287,6 +458,13 @@ export default function Navbar({
                   className="block text-slate-300 hover:text-emerald-400 py-1"
                 >
                   The Bridge
+                </a>
+                <a
+                  href="#simulation-iii"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block text-slate-300 hover:text-emerald-400 py-1"
+                >
+                  Folding Laboratory
                 </a>
                 <a
                   href="#mechanism-iii"
@@ -303,6 +481,13 @@ export default function Navbar({
                   Computational Verification
                 </a>
                 <a
+                  href="#dedications-iii"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block text-slate-300 hover:text-rose-300 py-1"
+                >
+                  Outsider Dedications
+                </a>
+                <a
                   href="#consulting"
                   onClick={() => setMobileMenuOpen(false)}
                   className="block text-slate-300 hover:text-emerald-400 py-1"
@@ -316,8 +501,15 @@ export default function Navbar({
                 >
                   Research Papers &amp; Atlas
                 </a>
+                <a
+                  href="#about"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block text-slate-300 hover:text-emerald-400 py-1"
+                >
+                  About Donnie
+                </a>
               </>
-            ) : activeTheory === 'hypercomplex' ? (
+            ) : !learnActive && !bookActive && activeTheory === 'hypercomplex' ? (
               <>
                 <a
                   href="#theory"
@@ -360,6 +552,13 @@ export default function Navbar({
                   className="block text-slate-300 hover:text-cyan-400 py-1"
                 >
                   Research Papers &amp; Atlas
+                </a>
+                <a
+                  href="#about"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block text-slate-300 hover:text-cyan-400 py-1"
+                >
+                  About Donnie
                 </a>
               </>
             ) : (
@@ -405,6 +604,13 @@ export default function Navbar({
                   className="block text-slate-300 hover:text-amber-400 py-1"
                 >
                   ODT Research Paper (JMP-DG)
+                </a>
+                <a
+                  href="#about"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block text-slate-300 hover:text-amber-400 py-1"
+                >
+                  About Donnie
                 </a>
               </>
             )}

@@ -4,6 +4,8 @@ import Footer from './components/Footer';
 import TerminalModal from './components/TerminalModal';
 import ContactModal from './components/ContactModal';
 import ConsultingServices from './components/ConsultingServices';
+import AboutDonnie from './components/AboutDonnie';
+import Dedication from './components/Dedication';
 import ResearchLibrary from './components/ResearchLibrary';
 import ResearchNote from './components/ResearchNote';
 
@@ -23,51 +25,73 @@ import ProtocolsDashboardODT from './components/ProtocolsDashboardODT';
 
 // Theory III: Lattice folding bridge between parity (I) and ODT (II)
 import TheoryIII from './components/TheoryIII';
+import StemLearning from './components/StemLearning';
+import BookPage from './components/BookPage';
 
 import { trackTheoryView, trackEvent } from './utils/analytics';
+
+function readLocation() {
+  if (typeof window === 'undefined') {
+    return { theory: 'hypercomplex', dedication: false, learn: false, book: false };
+  }
+  const path = window.location.pathname.toLowerCase();
+  const hash = window.location.hash.toLowerCase();
+  const search = window.location.search.toLowerCase();
+  const cleanPath = path.replace(/\/+$/, '') || '/';
+  const dedication = cleanPath === '/dedication' || hash === '#dedication';
+  const learn = cleanPath === '/learn' || cleanPath === '/stem' || hash === '#learn' || hash === '#stem';
+  const book = cleanPath === '/book' || hash === '#book';
+
+  let theory = 'hypercomplex';
+  if (
+    path.includes('lattice') ||
+    path.includes('folding') ||
+    path.includes('theory-iii') ||
+    path.includes('theory3') ||
+    hash.includes('theory-iii') ||
+    hash.includes('folding') ||
+    search.includes('folding') ||
+    search.includes('theory-iii')
+  ) {
+    theory = 'folding';
+  } else if (
+    path.includes('anti-gravity') ||
+    path.includes('odt') ||
+    hash.includes('odt') ||
+    search.includes('odt') ||
+    search.includes('anti-gravity')
+  ) {
+    theory = 'odt';
+  }
+
+  return { theory, dedication: dedication && !learn && !book, learn: learn && !book, book };
+}
+
+function theoryPath(theory) {
+  if (theory === 'odt') return '/anti-gravity';
+  if (theory === 'folding') return '/lattice-folding';
+  return '/';
+}
 
 export default function App() {
   const [terminalOpen, setTerminalOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
   const [researchNoteOpen, setResearchNoteOpen] = useState(false);
 
-  // Determine initial theory based on URL path or hash
-  const getInitialTheory = () => {
-    if (typeof window === 'undefined') return 'hypercomplex';
-    const path = window.location.pathname.toLowerCase();
-    const hash = window.location.hash.toLowerCase();
-    const search = window.location.search.toLowerCase();
-
-    if (
-      path.includes('lattice') ||
-      path.includes('folding') ||
-      path.includes('theory-iii') ||
-      path.includes('theory3') ||
-      hash.includes('theory-iii') ||
-      hash.includes('folding') ||
-      search.includes('folding') ||
-      search.includes('theory-iii')
-    ) {
-      return 'folding';
-    }
-    if (
-      path.includes('anti-gravity') || 
-      path.includes('odt') || 
-      hash.includes('odt') || 
-      search.includes('odt') ||
-      search.includes('anti-gravity')
-    ) {
-      return 'odt';
-    }
-    return 'hypercomplex';
-  };
-
-  const [activeTheory, setActiveTheory] = useState(getInitialTheory);
+  const initialLocation = readLocation();
+  const [activeTheory, setActiveTheory] = useState(initialLocation.theory);
+  const [dedicationOpen, setDedicationOpen] = useState(initialLocation.dedication);
+  const [learnOpen, setLearnOpen] = useState(initialLocation.learn);
+  const [bookOpen, setBookOpen] = useState(initialLocation.book);
 
   // Sync with browser back/forward and hash changes
   useEffect(() => {
     const handleLocationChange = () => {
-      setActiveTheory(getInitialTheory());
+      const next = readLocation();
+      setDedicationOpen(next.dedication);
+      setLearnOpen(next.learn);
+      setBookOpen(next.book);
+      if (!next.dedication && !next.learn && !next.book) setActiveTheory(next.theory);
     };
 
     window.addEventListener('popstate', handleLocationChange);
@@ -84,15 +108,57 @@ export default function App() {
   }, [activeTheory]);
 
   const handleSelectTheory = (theory) => {
+    setDedicationOpen(false);
+    setLearnOpen(false);
+    setBookOpen(false);
     setActiveTheory(theory);
-    const newPath = theory === 'odt'
-      ? '/anti-gravity'
-      : theory === 'folding'
-        ? '/lattice-folding'
-        : '/';
-    if (window.location.pathname !== newPath) {
+    const newPath = theoryPath(theory);
+    if (window.location.pathname !== newPath || window.location.hash) {
       window.history.pushState(null, '', newPath);
     }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleOpenTheoryDedications = () => {
+    setDedicationOpen(false);
+    setBookOpen(false);
+    setActiveTheory('folding');
+    window.history.pushState(null, '', '/lattice-folding');
+    window.setTimeout(() => {
+      document.getElementById('dedications-iii')?.scrollIntoView({ behavior: 'smooth' });
+    }, 80);
+  };
+
+  const handleOpenLearn = () => {
+    setDedicationOpen(false);
+    setBookOpen(false);
+    setLearnOpen(true);
+    if (window.location.pathname !== '/learn') {
+      window.history.pushState(null, '', '/learn');
+    }
+    trackEvent('learn_view', { active_theory: activeTheory });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleOpenDedication = () => {
+    setLearnOpen(false);
+    setBookOpen(false);
+    setDedicationOpen(true);
+    if (window.location.pathname !== '/dedication') {
+      window.history.pushState(null, '', '/dedication');
+    }
+    trackEvent('dedication_view', { active_theory: activeTheory });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleOpenBook = () => {
+    setDedicationOpen(false);
+    setLearnOpen(false);
+    setBookOpen(true);
+    if (window.location.pathname !== '/book') {
+      window.history.pushState(null, '', '/book');
+    }
+    trackEvent('book_view', { active_theory: activeTheory });
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -114,11 +180,26 @@ export default function App() {
         onOpenContact={handleOpenContact}
         activeTheory={activeTheory}
         onSelectTheory={handleSelectTheory}
+        dedicationActive={dedicationOpen}
+        onOpenDedication={handleOpenDedication}
+        learnActive={learnOpen}
+        onOpenLearn={handleOpenLearn}
+        bookActive={bookOpen}
+        onOpenBook={handleOpenBook}
       />
 
       {/* Main Content Sections: Dynamic by Theoretical Framework */}
       <main className="relative">
-        {activeTheory === 'hypercomplex' ? (
+        {bookOpen ? (
+          <BookPage />
+        ) : learnOpen ? (
+          <StemLearning onSelectTheory={handleSelectTheory} />
+        ) : dedicationOpen ? (
+          <Dedication
+            onOpenTheoryDedications={handleOpenTheoryDedications}
+            onOpenBook={handleOpenBook}
+          />
+        ) : activeTheory === 'hypercomplex' ? (
           /* ========================================================= */
           /* THEORETICAL FRAMEWORK I: QUASICRYSTALS, FRUSTRATION & E8  */
           /* (Original Foundation, 100% Unchanged)                     */
@@ -185,19 +266,25 @@ export default function App() {
           </div>
         )}
 
-        {/* Section 6: Strategic Consulting & Defense/Advisory Matrix (Shared) */}
-        <ConsultingServices 
-          onOpenContact={handleOpenContact}
-        />
+        {/* Section 6: About Donnie — lineage, biography, tripartite frame */}
+        {!dedicationOpen && !learnOpen && !bookOpen && <AboutDonnie onSelectTheory={handleSelectTheory} />}
+
+        {/* Section 7: Strategic Consulting & Defense/Advisory Matrix (Shared) */}
+        {!dedicationOpen && !learnOpen && !bookOpen && (
+          <ConsultingServices 
+            onOpenContact={handleOpenContact}
+          />
+        )}
 
         {/* Section 7: Research Library & Visual Proof Atlas Reader (Dual Papers) */}
-        <ResearchLibrary activeTheory={activeTheory} />
+        {!dedicationOpen && !learnOpen && !bookOpen && <ResearchLibrary activeTheory={activeTheory} />}
       </main>
 
       {/* Footer */}
       <Footer 
         onOpenTerminal={handleOpenTerminal}
         onOpenContact={handleOpenContact}
+        onOpenDedication={handleOpenDedication}
       />
 
       {/* Interactive Terminal Modal */}
