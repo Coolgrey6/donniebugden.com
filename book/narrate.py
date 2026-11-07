@@ -92,6 +92,31 @@ def speakable(text: str) -> str:
     return text
 
 
+def spoken_pieces(text: str) -> list[str]:
+    """Short pieces. A long chain of 'and' is where this voice stops early."""
+    sentences = re.split(r"(?<=[.!?])\s+", text.strip())
+    pieces: list[str] = []
+    for sentence in sentences:
+        sentence = sentence.strip()
+        if not sentence or sentence.lower() in {"end.", "end"}:
+            continue
+        if len(sentence) <= 180:
+            pieces.append(sentence)
+            continue
+        clauses = [clause.strip() for clause in re.split(r"(?<=[,;:])\s+", sentence) if clause.strip()]
+        buffer = ""
+        for clause in clauses:
+            candidate = f"{buffer} {clause}".strip()
+            if buffer and len(candidate) > 180:
+                pieces.append(buffer)
+                buffer = clause
+            else:
+                buffer = candidate
+        if buffer:
+            pieces.append(buffer)
+    return pieces
+
+
 def heading_speech(title: str) -> str:
     match = re.match(r"^([IVX]+)\.\s+(.*)$", title)
     if not match:
@@ -110,7 +135,8 @@ def narrate_section(kokoro: Kokoro, section: dict) -> np.ndarray:
         pieces.append("The Unclosed Turn. A romance in eight dimensions.")
     elif section["heading"]:
         pieces.append(heading_speech(section["heading"]))
-    pieces.extend(speakable(paragraph) for paragraph in section["paragraphs"])
+    for paragraph in section["paragraphs"]:
+        pieces.extend(spoken_pieces(speakable(paragraph)))
     chunks: list[np.ndarray] = []
     for piece in pieces:
         if not piece:
